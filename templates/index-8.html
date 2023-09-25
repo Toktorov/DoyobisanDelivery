@@ -91,8 +91,8 @@
             </div>
             <div class="layer"></div><!-- Opacity Mask Menu Mobile -->
             <ul id="top_menu">
-                <li><a href="#sign-in-dialog" id="sign-in" class="login">Sign In</a></li>
-                <li><a href="#0" class="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
+                <li><a href="#sign-in-dialog" id="sign-in" class="login">Проблема</a></li>
+                <li><a href="#0" class="wishlist_bt_top" title="Your wishlist">Корзина</a></li>
             </ul>
             <!-- /top_menu -->
             <a href="#0" class="open_close">
@@ -103,85 +103,23 @@
                     <a href="#0" class="open_close">
                         <i class="icon_close"></i><span>Menu</span>
                     </a>
-                    <a href="index.html"><img src="img/logo.svg" width="162" height="35" alt=""></a>
+                    <a href="{% url 'index' %}"><img src="{{ setting.logo.url }}" width="20%" alt="{{ setting.title }}"></a>
                 </div>
                 <ul>
                     <li class="submenu">
-                        <a href="#0" class="show-submenu">Home</a>
-                        <ul>
-                            <li><a href="index-13.html">KenBurns Slider <strong>New!</strong></a></li>
-                            <li><a href="index.html">Address Autocomplete</a></li>
-                            <li><a href="index-2.html">Search by Keyword</a></li>
-                            <li><a href="index-3.html">Home Version 2</a></li>
-                            <li><a href="index-4.html">Video Bg Fallback Mobile</a></li>
-                            <li class="third-level"><a href="#0">Sliders - Parallax <strong>New!</strong></a>
-                                <ul>
-                                    <li><a href="index-6.html">Owl Carousel</a></li>
-                                    <li><a href="index-7.html">Revolution Slider 1</a></li>
-                                    <li><a href="index-8.html">Revolution Slider 2</a></li>
-                                    <li><a href="index-9.html">Youtube/Vimeo Parallax</a></li>
-                                    <li><a href="index-10.html">MP4 Video Parallax</a></li>
-                                    <li><a href="index-11.html">Parallax Image</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-12.html">Text Rotator <strong>New!</strong></a></li>
-                            <li><a href="index-5.html">GDPR Cookie Bar EU Law</a></li>
-                            <li><a href="header-user-logged.html">Header User Logged</a></li>
-                            <li><a href="header-cart-top.html">Header Cart Top</a></li>
-                            <li><a href="modal-advertise.html">Modal 1 Cookie Session</a></li>
-                            <li><a href="modal-newsletter.html">Modal 2 Cookie Session</a></li>
-                        </ul>
+                        <a href="{% url 'index' %}" class="show-submenu">Главная</a>
+                        
                     </li>
                     <li class="submenu">
-                        <a href="#0" class="show-submenu">Listing</a>
-                        <ul>
-                            <li class="third-level"><a href="#0">List pages</a>
-                                <ul>
-                                    <li><a href="grid-listing-filterscol.html">List default</a></li>
-                                    <li><a href="grid-listing-filterscol-map.html">List with map</a></li>
-                                    <li><a href="listing-map.html">List side map</a></li>
-                                    <li><a href="grid-listing-masonry.html">List Masonry Filter</a></li>
-                                </ul>
-                            </li>
-                            <li class="third-level"><a href="#0">Detail pages</a>
-                                <ul>
-                                    <li><a href="detail-restaurant.html">Detail page 1</a></li>
-                                    <li><a href="detail-restaurant-2.html">Detail page 2</a></li>
-                                    <li><a href="detail-restaurant-3.html">Detail page 3</a></li>
-                                    <li><a href="detail-restaurant-4.html">Detail page 4</a></li>
-                                </ul>
-                            </li>
-                            <li class="third-level"><a href="#0">OpenStreetMap</a>
-                                <ul>
-                                    <li><a href="grid-listing-filterscol-openstreetmap.html">List with map</a></li>
-                                    <li><a href="listing-map-openstreetmap.html">List side map</a></li>
-                                    <li><a href="grid-listing-masonry-openstreetmap.html">List Masonry Filter</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="submit-restaurant.html">Submit Restaurant</a></li>
-                            <li><a href="submit-rider.html">Submit Rider</a></li>
-                            <li><a href="order.html">Order</a></li>
-                            <li><a href="confirm.html">Confirm Order</a></li>
-                        </ul>
+                        <a href="{% url 'index' %}" class="show-submenu">Еда</a>
+                        
                     </li>
                     <li class="submenu">
-                        <a href="#0" class="show-submenu">Other Pages</a>
-                       <ul>
-				        <li><a href="admin_section/index.html" target="_blank">Admin Section</a></li>
-				        <li><a href="404.html">404 Error</a></li>
-				        <li><a href="help.html">Help and Faq</a></li>
-				        <li><a href="blog.html">Blog</a></li>
-				        <li><a href="leave-review.html">Leave a review</a></li>
-				        <li><a href="contacts.html">Contacts</a></li>
-				        <li><a href="coming_soon/index.html">Coming Soon</a></li>
-				        <li><a href="login.html">Sign In</a></li>
-				        <li><a href="register.html">Sign Up</a></li>
-				        <li><a href="icon-pack-1.html">Icon Pack 1</a></li>
-				        <li><a href="icon-pack-2.html">Icon Pack 2</a></li>
-				        <li><a href="shortcodes.html">Shortcodes</a></li>
-				    </ul>
+                        <a href="{% url 'index' %}" class="show-submenu">Отзывы</a>
                     </li>
-                    <li><a href="https://1.envato.market/EkmV9" target="_parent">Buy this template</a></li>
+                    <li>
+                        <a href="{% url 'index' %}" target="_parent">Контакты</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -212,7 +150,7 @@
                         <div class="tp-caption tp-shape tp-shapewrapper " id="slide-67-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[{"delay":10,"speed":500,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power4.easeOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 18;background-color:rgba(0, 0, 0, 0.5);"> </div>
                         <div class="tp-caption tp-resizeme" id="slide-67-layer-2" data-x="['center','center','center','center']" data-hoffset="['1','1','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-70']" data-fontsize="['90','90','70','50']" data-lineheight="['90','90','70','50']" data-width="['none','none','481','360']" data-height="none" data-whitespace="['nowrap','nowrap','normal','normal']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: -2px;font-family: 'Poppins', Helvetica, sans-serif;">{{ setting.title }}<br />
                             Доставка роллов и пиццы</div>
-                        <div class="tp-caption tp-resizeme" id="slide-67-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif; margin-top: 50px;">Режим работы:<br>Вс-Чт с 10:00 до 23:00 Пт-Сб с 10:00 до 23:45 тел. <br>8-917-741-56-22<br>Бесплатная доставка от 600 рублей</div>
+                        <div class="tp-caption tp-resizeme" id="slide-67-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif; margin-top: 50px;">Режим работы:<br>ПН-ВС 10:00 - 24:00<br>+996 550‒03‒00‒40<br>+996 700‒030‒040<br>Бесплатная доставка от 1000 сом</div>
                         <div class="tp-caption tp-resizeme btn_1" data-actions='[{"event":"click","action":"scrollbelow","offset":"-49px","delay":"","speed":"300","ease":"Linear.easeNone"}]' id="slide-67-layer-7" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['200','200','160','120']" data-width="250" data-height="none" data-whitespace="nowrap" data-type="button" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[50,50,50,50]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[50,50,50,50]" style="z-index: 21; min-width: 250px; max-width: 250px; white-space: nowrap; font-size: 18px; line-height: 55px; font-weight: 500; border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none; font-family: 'Poppins', Helvetica, sans-serif; margin-top: 100px;">Заказать</div>
                     </li>
                     <li data-index="rs-66" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="600" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 0px 0px transparent">
@@ -231,9 +169,9 @@
                         <div class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme" id="slide-66-layer-33" data-x="['center','center','center','center']" data-hoffset="['-37','73','-76','-100']" data-y="['middle','middle','middle','middle']" data-voffset="['-401','-340','-293','-246']" data-width="['450','400','250','250']" data-height="['100','100','50','50']" data-whitespace="nowrap" data-type="shape" data-slicey_offset="250" data-slicey_blurstart="0" data-slicey_blurend="20" data-responsive_offset="on" data-frames='[{"delay":310,"speed":1000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"+3690","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 16;background-color:rgba(0, 0, 0, 0.5);"> </div>
                         <div class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme" id="slide-66-layer-35" data-x="['center','center','center','center']" data-hoffset="['186','38','116','17']" data-y="['middle','middle','middle','middle']" data-voffset="['363','402','190','395']" data-width="['350','400','250','250']" data-height="['100','100','50','50']" data-whitespace="nowrap" data-type="shape" data-slicey_offset="250" data-slicey_blurstart="0" data-slicey_blurend="20" data-responsive_offset="on" data-frames='[{"delay":340,"speed":1000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"+3660","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 17;background-color:rgba(0, 0, 0, 0.5);"> </div>
                         <div class="tp-caption tp-shape tp-shapewrapper " id="slide-66-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[{"delay":10,"speed":500,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power4.easeOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 18;background-color:rgba(0, 0, 0, 0.5);"> </div>
-                        <div class="tp-caption   tp-resizeme" id="slide-66-layer-2" data-x="['center','center','center','center']" data-hoffset="['1','1','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-70']" data-fontsize="['90','90','70','50']" data-lineheight="['90','90','70','50']" data-width="['none','none','481','360']" data-height="none" data-whitespace="['nowrap','nowrap','normal','normal']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: -2px;font-family: 'Poppins', Helvetica, sans-serif;">Exploring<br />New Tastes</div>
-                        <div class="tp-caption   tp-resizeme" id="slide-66-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif;">Expolore top rated restaurants and bars around the world!</div>
-                        <div class="tp-caption tp-resizeme btn_1" data-actions='[{"event":"click","action":"scrollbelow","offset":"-49px","delay":"","speed":"300","ease":"Linear.easeNone"}]' id="slide-66-layer-7" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['200','200','160','120']" data-width="250" data-height="none" data-whitespace="nowrap" data-type="button" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[50,50,50,50]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[50,50,50,50]" style="z-index: 21; min-width: 250px; max-width: 250px; white-space: nowrap; font-size: 18px; line-height: 55px; font-weight: 500; border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none; font-family: 'Poppins', Helvetica, sans-serif;">GET STARTED</div>
+                        <div class="tp-caption   tp-resizeme" id="slide-66-layer-2" data-x="['center','center','center','center']" data-hoffset="['1','1','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-70']" data-fontsize="['90','90','70','50']" data-lineheight="['90','90','70','50']" data-width="['none','none','481','360']" data-height="none" data-whitespace="['nowrap','nowrap','normal','normal']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: -2px;font-family: 'Poppins', Helvetica, sans-serif;">{{ setting.title }}<br />Доставка роллов и пиццы</div>
+                        <div class="tp-caption   tp-resizeme" id="slide-66-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif; margin-top: 50px;">Режим работы:<br>ПН-ВС 10:00 - 24:00<br>+996 550‒03‒00‒40<br>+996 700‒030‒040<br>Бесплатная доставка от 1000 сом</div>
+                        <div class="tp-caption tp-resizeme btn_1" data-actions='[{"event":"click","action":"scrollbelow","offset":"-49px","delay":"","speed":"300","ease":"Linear.easeNone"}]' id="slide-66-layer-7" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['200','200','160','120']" data-width="250" data-height="none" data-whitespace="nowrap" data-type="button" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[50,50,50,50]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[50,50,50,50]" style="z-index: 21; min-width: 250px; max-width: 250px; white-space: nowrap; font-size: 18px; line-height: 55px; font-weight: 500; border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none; font-family: 'Poppins', Helvetica, sans-serif; margin-top: 100px;">Заказать</div>
                     </li>
                     <li data-index="rs-68" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="600" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 0px 0px transparent">
                         <img src="{% static 'revolution-slider/assets/images/slide_3.jpg' %}" alt="" data-bgposition="center center" data-kenburns="on" data-duration="5000" data-ease="Power2.easeInOut" data-scalestart="100" data-scaleend="150" data-rotatestart="0" data-rotateend="0" data-blurstart="20" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
@@ -251,9 +189,9 @@
                         <div class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme" id="slide-68-layer-33" data-x="['center','center','center','center']" data-hoffset="['-37','73','-76','-100']" data-y="['middle','middle','middle','middle']" data-voffset="['-401','-340','-293','-246']" data-width="['450','400','250','250']" data-height="['100','100','50','50']" data-whitespace="nowrap" data-type="shape" data-slicey_offset="250" data-slicey_blurstart="0" data-slicey_blurend="20" data-responsive_offset="on" data-frames='[{"delay":310,"speed":1000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"+3690","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 16;background-color:rgba(0, 0, 0, 0.5);"> </div>
                         <div class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme" id="slide-68-layer-35" data-x="['center','center','center','center']" data-hoffset="['186','38','116','17']" data-y="['middle','middle','middle','middle']" data-voffset="['363','402','190','395']" data-width="['350','400','250','250']" data-height="['100','100','50','50']" data-whitespace="nowrap" data-type="shape" data-slicey_offset="250" data-slicey_blurstart="0" data-slicey_blurend="20" data-responsive_offset="on" data-frames='[{"delay":340,"speed":1000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"+3660","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 17;background-color:rgba(0, 0, 0, 0.5);"> </div>
                         <div class="tp-caption tp-shape tp-shapewrapper " id="slide-68-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[{"delay":10,"speed":500,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power4.easeOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 18;background-color:rgba(0, 0, 0, 0.5);"> </div>
-                        <div class="tp-caption   tp-resizeme" id="slide-68-layer-2" data-x="['center','center','center','center']" data-hoffset="['1','1','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-70']" data-fontsize="['90','90','70','50']" data-lineheight="['90','90','70','50']" data-width="['none','none','481','360']" data-height="none" data-whitespace="['nowrap','nowrap','normal','normal']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: -2px;font-family: 'Poppins', Helvetica, sans-serif;">Experience <br />with Fooyes</div>
-                        <div class="tp-caption tp-resizeme" id="slide-68-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif;">Expolore top rated restaurants and bars around the world!</div>
-                        <div class="tp-caption tp-resizeme btn_1" data-actions='[{"event":"click","action":"scrollbelow","offset":"-49px","delay":"","speed":"300","ease":"Linear.easeNone"}]' id="slide-68-layer-7" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['200','200','160','120']" data-width="250" data-height="none" data-whitespace="nowrap" data-type="button" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[50,50,50,50]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[50,50,50,50]" style="z-index: 21; min-width: 250px; max-width: 250px; white-space: nowrap; font-size: 18px; line-height: 55px; font-weight: 500; border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none; font-family: 'Poppins', Helvetica, sans-serif;">GET STARTED</div>
+                        <div class="tp-caption   tp-resizeme" id="slide-68-layer-2" data-x="['center','center','center','center']" data-hoffset="['1','1','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-70']" data-fontsize="['90','90','70','50']" data-lineheight="['90','90','70','50']" data-width="['none','none','481','360']" data-height="none" data-whitespace="['nowrap','nowrap','normal','normal']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: -2px;font-family: 'Poppins', Helvetica, sans-serif;">{{ setting.title }} <br/>Доставка роллов и суши</div>
+                        <div class="tp-caption tp-resizeme" id="slide-68-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif; margin-top: 50px;">Режим работы:<br>ПН-ВС 10:00 - 24:00<br>+996 550‒03‒00‒40<br>+996 700‒030‒040<br>Бесплатная доставка от 1000 сом</div>
+                        <div class="tp-caption tp-resizeme btn_1" data-actions='[{"event":"click","action":"scrollbelow","offset":"-49px","delay":"","speed":"300","ease":"Linear.easeNone"}]' id="slide-68-layer-7" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['200','200','160','120']" data-width="250" data-height="none" data-whitespace="nowrap" data-type="button" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[50,50,50,50]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[50,50,50,50]" style="z-index: 21; min-width: 250px; max-width: 250px; white-space: nowrap; font-size: 18px; line-height: 55px; font-weight: 500; border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none; font-family: 'Poppins', Helvetica, sans-serif; margin-top: 100px;">Заказать</div>
                     </li>
                 </ul>
                 <div class="tp-bannertimer tp-bottom" style="height: 5px; background:#e54750;"></div>
@@ -294,7 +232,7 @@
                 <div class="main_title">
                     <span><em></em></span>
                     <h2>Отзывы клиентов</h2>
-                    <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                    <p>Отзывы клиентов которые заказали у нас еду</p>
                     <a href="#0">View All &rarr;</a>
                 </div>
                 <div class="row add_bottom_25">
@@ -304,46 +242,13 @@
                                 <li>
                                     <a href="detail-restaurant.html">
                                         <figure>
-                                            <img src="img/location_list_placeholder.png" data-src="img/location_list_1.jpg" alt="" class="lazy" width="350" height="233">
+                                            <img src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" data-src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" alt="" class="lazy" width="350" height="233">
                                         </figure>
                                         <div class="score"><strong>9.5</strong></div>
-                                        <em>Italian</em>
-                                        <h3>La Monnalisa</h3>
-                                        <small>8 Patriot Square E2 9NF</small>
-                                        <ul>
-                                            <li><span class="ribbon off">-30%</span></li>
-                                            <li>Average price $35</li>
-                                        </ul>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="detail-restaurant.html">
-                                        <figure>
-                                            <img src="img/location_list_placeholder.png" data-src="img/location_list_2.jpg" alt="" class="lazy" width="350" height="233">
-                                        </figure>
-                                        <div class="score"><strong>8.0</strong></div>
-                                        <em>Mexican</em>
-                                        <h3>Alliance</h3>
-                                        <small>27 Old Gloucester St, 4563</small>
-                                        <ul>
-                                            <li><span class="ribbon off">-40%</span></li>
-                                            <li>Average price $30</li>
-                                        </ul>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="detail-restaurant.html">
-                                        <figure>
-                                            <img src="img/location_list_placeholder.png" data-src="img/location_list_3.jpg" alt="" class="lazy" width="350" height="233">
-                                        </figure>
-                                        <div class="score"><strong>9.0</strong></div>
-                                        <em>Sushi - Japanese</em>
-                                        <h3>Sushi Gold</h3>
-                                        <small>Old Shire Ln EN9 3RX</small>
-                                        <ul>
-                                            <li><span class="ribbon off">-25%</span></li>
-                                            <li>Average price $20</li>
-                                        </ul>
+                                        <em>25 сентября</em>
+                                        <h3>Токторов Курманбек</h3>
+                                        <small>Очень классная еда</small>
+                                       
                                     </a>
                                 </li>
                             </ul>
@@ -355,46 +260,13 @@
                                 <li>
                                     <a href="detail-restaurant.html">
                                         <figure>
-                                            <img src="img/location_list_placeholder.png" data-src="img/location_list_4.jpg" alt="" class="lazy" width="350" height="233">
+                                            <img src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" data-src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" alt="" class="lazy" width="350" height="233">
                                         </figure>
                                         <div class="score"><strong>9.5</strong></div>
-                                        <em>Vegetarian</em>
-                                        <h3>Mr. Pepper</h3>
-                                        <small>27 Old Gloucester St, 4563</small>
-                                        <ul>
-                                            <li><span class="ribbon off">-30%</span></li>
-                                            <li>Average price $20</li>
-                                        </ul>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="detail-restaurant.html">
-                                        <figure>
-                                            <img src="img/location_list_placeholder.png" data-src="img/location_list_5.jpg" alt="" class="lazy" width="350" height="233">
-                                        </figure>
-                                        <div class="score"><strong>8.0</strong></div>
-                                        <em>Chinese</em>
-                                        <h3>Dragon Tower</h3>
-                                        <small>22 Hertsmere Rd E14 4ED</small>
-                                        <ul>
-                                            <li><span class="ribbon off">-50%</span></li>
-                                            <li>Average price $35</li>
-                                        </ul>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="detail-restaurant.html">
-                                        <figure>
-                                            <img src="img/location_list_placeholder.png" data-src="img/location_list_6.jpg" alt="" class="lazy" width="350" height="233">
-                                        </figure>
-                                        <div class="score"><strong>8.5</strong></div>
-                                        <em>Pizza - Italian</em>
-                                        <h3>Bella Napoli</h3>
-                                        <small>135 Newtownards Road BT4</small>
-                                        <ul>
-                                            <li><span class="ribbon off">-45%</span></li>
-                                            <li>Average price $25</li>
-                                        </ul>
+                                        <em>25 сентября</em>
+                                        <h3>Залкар Кулмаматов</h3>
+                                        <small>Очень классная еда</small>
+                                        
                                     </a>
                                 </li>
                             </ul>
@@ -402,13 +274,13 @@
                     </div>
                 </div>
                 <!-- /row -->
-                <div class="banner lazy" data-bg="url(img/banner_bg_desktop.jpg)">
+                <div class="banner lazy" data-bg="url('https://n1s1.hsmedia.ru/3b/b9/2e/3bb92eb5c0243f41c8f0fd14044619cd/1861x1387_0xac120003_1225909181634638355.jpeg')">
                     <div class="wrapper d-flex align-items-center opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.3)">
                         <div>
-                            <small>FooYes Delivery</small>
-                            <h3>We Deliver to your Office</h3>
-                            <p>Enjoy a tasty food in minutes!</p>
-                            <a href="grid-listing-filterscol.html" class="btn_1 gradient">Start Now!</a>
+                            <small>{{ setting.title }}</small>
+                            <h3>Наш адрес</h3>
+                            <p>Мы находимся по адресу ​Токтогула, 90​1 этаж​ Первомайский район, Бишкек, 720040</p>
+                            <a href="{% url 'index' %}" class="btn_1 gradient">Наш адрес</a>
                         </div>
                     </div>
                     <!-- /wrapper -->
@@ -425,21 +297,21 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="box_how">
-                                    <figure><img src="img/lazy-placeholder-100-100-white.png" data-src="img/how_1.svg" alt="" width="150" height="167" class="lazy"></figure>
-                                    <h3>Easly Order</h3>
-                                    <p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin.</p>
+                                    <figure><img src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" data-src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" alt="" width="150" height="167" class="lazy"></figure>
+                                    <h3>Выберите еду</h3>
+                                    <p>Выберите еду или сет которое вас интересует</p>
                                 </div>
                                 <div class="box_how">
-                                    <figure><img src="img/lazy-placeholder-100-100-white.png" data-src="img/how_2.svg" alt="" width="130" height="145" class="lazy"></figure>
-                                    <h3>Quick Delivery</h3>
-                                    <p>Maecenas pulvinar, risus in facilisis dignissim, quam nisi hendrerit nulla, id vestibulum.</p>
+                                    <figure><img src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" data-src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" alt="" width="130" height="145" class="lazy"></figure>
+                                    <h3>Добавьте в корзину</h3>
+                                    <p>Добавьте еду в корзину</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 align-self-center">
                                 <div class="box_how">
-                                    <figure><img src="img/lazy-placeholder-100-100-white.png" data-src="img/how_3.svg" alt="" width="150" height="132" class="lazy"></figure>
-                                    <h3>Enjoy Food</h3>
-                                    <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.</p>
+                                    <figure><img src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" data-src="https://img.championat.com/c/900x900/news/big/w/q/pochemu-sushi-vredny-dlja-figury_1590677088981164064.jpg" alt="" width="150" height="132" class="lazy"></figure>
+                                    <h3>Оформите и оплатите заказ</h3>
+                                    <p>После того как успешно </p>
                                 </div>
                             </div>
                         </div>
@@ -449,11 +321,11 @@
                         <div class="intro_txt">
                             <div class="main_title">
                                 <span><em></em></span>
-                                <h2>Start Ordering Now</h2>
+                                <h2>Как заказать еду?</h2>
                             </div>
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet libero id nisi euismod, sed porta est consectetur deserunt.</p>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <p><a href="#0" class="btn_1 medium gradient pulse_bt mt-2">Register</a></p>
+                            <p class="lead">Для заказа еду на нашем сайте сперва выберите еду, далее добавьте еду в корзину и оформите заказ</p>
+                            <p>Если возникли проблемы с заказом напишите нам</p>
+                            <p><a href="{% url 'index' %}" class="btn_1 medium gradient pulse_bt mt-2">Написать</a></p>
                         </div>
                     </div>
                 </div>
