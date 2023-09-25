@@ -85,8 +85,8 @@
         <div class="container">
             <div id="logo">
                 <a href="{% url 'index' %}">
-                    <img src="{% static 'img/logo.svg' %}" width="162" height="35" alt="" class="logo_normal">
-                    <img src="{% static 'img/logo_sticky.svg' %}" width="162" height="35" alt="" class="logo_sticky">
+                    <img src="{{ setting.logo.url }}" width="20%" alt="{{ setting.title }}" class="logo_normal">
+                    <img src="{{ setting.logo.url }}" width="20%" alt="{{ setting.title }}" class="logo_sticky">
                 </a>
             </div>
             <div class="layer"></div><!-- Opacity Mask Menu Mobile -->
@@ -210,10 +210,10 @@
                         <div class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme" id="slide-67-layer-33" data-x="['center','center','center','center']" data-hoffset="['-37','73','-76','-100']" data-y="['middle','middle','middle','middle']" data-voffset="['-401','-340','-293','-246']" data-width="['450','400','250','250']" data-height="['100','100','50','50']" data-whitespace="nowrap" data-type="shape" data-slicey_offset="250" data-slicey_blurstart="0" data-slicey_blurend="20" data-responsive_offset="on" data-frames='[{"delay":310,"speed":1000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"+3690","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 16;background-color:rgba(0, 0, 0, 0.5);"> </div>
                         <div class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme" id="slide-67-layer-35" data-x="['center','center','center','center']" data-hoffset="['186','38','116','17']" data-y="['middle','middle','middle','middle']" data-voffset="['363','402','190','395']" data-width="['350','400','250','250']" data-height="['100','100','50','50']" data-whitespace="nowrap" data-type="shape" data-slicey_offset="250" data-slicey_blurstart="0" data-slicey_blurend="20" data-responsive_offset="on" data-frames='[{"delay":340,"speed":1000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"+3660","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 17;background-color:rgba(0, 0, 0, 0.5);"> </div>
                         <div class="tp-caption tp-shape tp-shapewrapper " id="slide-67-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[{"delay":10,"speed":500,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power4.easeOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 18;background-color:rgba(0, 0, 0, 0.5);"> </div>
-                        <div class="tp-caption tp-resizeme" id="slide-67-layer-2" data-x="['center','center','center','center']" data-hoffset="['1','1','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-70']" data-fontsize="['90','90','70','50']" data-lineheight="['90','90','70','50']" data-width="['none','none','481','360']" data-height="none" data-whitespace="['nowrap','nowrap','normal','normal']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: -2px;font-family: 'Poppins', Helvetica, sans-serif;">Discover<br />
-                           great food</div>
-                        <div class="tp-caption tp-resizeme" id="slide-67-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif;">Expolore top rated restaurants and bars around the world!</div>
-                        <div class="tp-caption tp-resizeme btn_1" data-actions='[{"event":"click","action":"scrollbelow","offset":"-49px","delay":"","speed":"300","ease":"Linear.easeNone"}]' id="slide-67-layer-7" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['200','200','160','120']" data-width="250" data-height="none" data-whitespace="nowrap" data-type="button" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[50,50,50,50]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[50,50,50,50]" style="z-index: 21; min-width: 250px; max-width: 250px; white-space: nowrap; font-size: 18px; line-height: 55px; font-weight: 500; border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none; font-family: 'Poppins', Helvetica, sans-serif;">GET STARTED</div>
+                        <div class="tp-caption tp-resizeme" id="slide-67-layer-2" data-x="['center','center','center','center']" data-hoffset="['1','1','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-70']" data-fontsize="['90','90','70','50']" data-lineheight="['90','90','70','50']" data-width="['none','none','481','360']" data-height="none" data-whitespace="['nowrap','nowrap','normal','normal']" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: -2px;font-family: 'Poppins', Helvetica, sans-serif;">{{ setting.title }}<br />
+                            Доставка роллов и пиццы</div>
+                        <div class="tp-caption tp-resizeme" id="slide-67-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','60','30']" data-fontsize="['25','25','25','20']" data-lineheight="['35','35','35','30']" data-width="['480','480','480','360']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 20; min-width: 480px; max-width: 480px; white-space: normal; font-size: 25px; line-height: 35px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family: 'Poppins', Helvetica, sans-serif; margin-top: 50px;">Режим работы:<br>Вс-Чт с 10:00 до 23:00 Пт-Сб с 10:00 до 23:45 тел. <br>8-917-741-56-22<br>Бесплатная доставка от 600 рублей</div>
+                        <div class="tp-caption tp-resizeme btn_1" data-actions='[{"event":"click","action":"scrollbelow","offset":"-49px","delay":"","speed":"300","ease":"Linear.easeNone"}]' id="slide-67-layer-7" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['200','200','160','120']" data-width="250" data-height="none" data-whitespace="nowrap" data-type="button" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[50,50,50,50]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[50,50,50,50]" style="z-index: 21; min-width: 250px; max-width: 250px; white-space: nowrap; font-size: 18px; line-height: 55px; font-weight: 500; border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none; font-family: 'Poppins', Helvetica, sans-serif; margin-top: 100px;">Заказать</div>
                     </li>
                     <li data-index="rs-66" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="600" data-thumb="" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 0px 0px transparent">
                         <img src="{% static 'revolution-slider/assets/images/slide_5.jpg' %}" alt="" data-bgposition="center center" data-kenburns="on" data-duration="5000" data-ease="Power2.easeInOut" data-scalestart="100" data-scaleend="150" data-rotatestart="0" data-rotateend="0" data-blurstart="20" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
@@ -264,96 +264,26 @@
         <div class="container margin_60">
             <div class="main_title center">
                 <span><em></em></span>
-                <h2>Popular Categories</h2>
-                <p>Cum doctus civibus efficiantur in imperdiet deterruisset</p>
+                <h2>Товары и услуги</h2>
+                <p>Товары и услуги {{ setting.title }}</p>
             </div>
             <!-- /main_title -->
 
             <div class="owl-carousel owl-theme categories_carousel">
+                {% for product in products %}
                 <div class="item_version_2">
                     <a href="grid-listing-filterscol.html">
                         <figure>
                             <span>98</span>
-                            <img src="img/home_cat_placeholder.jpg" data-src="img/home_cat_pizza.jpg" alt="" class="owl-lazy" width="350" height="450">
+                            <img src="{{ product.image.url }}" data-src="{{ product.image.url }}" alt="" class="owl-lazy" width="350" height="450">
                             <div class="info">
-                                <h3>Pizza</h3>
-                                <small>Avg price $40</small>
+                                <h3>{{ product.title }}</h3>
+                                <small>{{ product.price }}</small>
                             </div>
                         </figure>
                     </a>
                 </div>
-                <div class="item_version_2">
-                    <a href="grid-listing-filterscol.html">
-                        <figure>
-                            <span>87</span>
-                            <img src="img/home_cat_placeholder.jpg" data-src="img/home_cat_sushi.jpg" alt="" class="owl-lazy" width="350" height="450">
-                            <div class="info">
-                                <h3>Japanese</h3>
-                                <small>Avg price $50</small>
-                            </div>
-                        </figure>
-                    </a>
-                </div>
-                <div class="item_version_2">
-                    <a href="grid-listing-filterscol.html">
-                        <figure>
-                            <span>55</span>
-                            <img src="img/home_cat_placeholder.jpg" data-src="img/home_cat_hamburgher.jpg" alt="" class="owl-lazy" width="350" height="450">
-                            <div class="info">
-                                <h3>Burghers</h3>
-                                <small>Avg price $55</small>
-                            </div>
-                        </figure>
-                    </a>
-                </div>
-                <div class="item_version_2">
-                    <a href="grid-listing-filterscol.html">
-                        <figure>
-                            <span>55</span>
-                            <img src="img/home_cat_placeholder.jpg" data-src="img/home_cat_vegetarian.jpg" alt="" class="owl-lazy" width="350" height="450">
-                            <div class="info">
-                                <h3>Vegetarian</h3>
-                                <small>Avg price $40</small>
-                            </div>
-                        </figure>
-                    </a>
-                </div>
-                <div class="item_version_2">
-                    <a href="grid-listing-filterscol.html">
-                        <figure>
-                            <span>65</span>
-                            <img src="img/home_cat_placeholder.jpg" data-src="img/home_cat_bakery.jpg" alt="" class="owl-lazy" width="350" height="450">
-                            <div class="info">
-                                <h3>Bakery</h3>
-                                <small>Avg price $60</small>
-                            </div>
-                        </figure>
-                    </a>
-                </div>
-                <div class="item_version_2">
-                    <a href="grid-listing-filterscol.html">
-                        <figure>
-                            <span>25</span>
-                            <img src="img/home_cat_placeholder.jpg" data-src="img/home_cat_chinesse.jpg" alt="" class="owl-lazy" width="350" height="450">
-                            <div class="info">
-                                <h3>Chinese</h3>
-                                <small>Avg price $40</small>
-                            </div>
-                        </figure>
-                    </a>
-                </div>
-                <div class="item_version_2">
-                    <a href="grid-listing-filterscol.html">
-                        <figure>
-                            <span>35</span>
-                            <img src="img/home_cat_placeholder.jpg" data-src="img/home_cat_mexican.jpg" alt="" class="owl-lazy" width="350" height="450">
-                            <div class="info">
-                                <h3>Mexican</h3>
-                                <small>Avg price $35</small>
-                            </div>
-                        </figure>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
             <!-- /carousel -->
         </div>
@@ -363,7 +293,7 @@
             <div class="container margin_60_40">
                 <div class="main_title">
                     <span><em></em></span>
-                    <h2>Top Rated Restaurants</h2>
+                    <h2>Отзывы клиентов</h2>
                     <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
                     <a href="#0">View All &rarr;</a>
                 </div>
