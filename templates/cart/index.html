@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 
-<link href="{% static 'css/detail-page.css' %}" rel="stylesheet">
+    <!-- SPECIFIC CSS -->
+    <link href="{% static 'css/detail-page.css' %}" rel="stylesheet">
 
 <body data-spy="scroll" data-bs-target="#secondary_nav" data-offset="75">
 				
@@ -11,27 +12,18 @@
 	
 	<main>
 
-		<div class="hero_in detail_page background-image" data-background="url(https://n1s1.hsmedia.ru/3b/b9/2e/3bb92eb5c0243f41c8f0fd14044619cd/1861x1387_0xac120003_1225909181634638355.jpeg)">
+		<div class="hero_in detail_page background-image" data-background="url(https://dasushi.od.ua/storage/article-preview/app-article/41/origin/sushi-polza-i-vred1653924777.jpg?t=1653924778)">
 			<div class="wrapper opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 				
 				<div class="container">
 					<div class="main_info">
 						<div class="row">
 							<div class="col-xl-4 col-lg-5 col-md-6">
-								<div class="head"><div class="score"><span>{{ setting }}<em>350 отзывов</em></span><strong>8.9</strong></div></div>
-								<h1>{{ product.title }}</h1>
-								<h3>{{ product.price }} KGS</h3>
+								<div class="head"><div class="score"><span>{{ setting.title }}<em>350 отзывов</em></span><strong>8.9</strong></div></div>
+								<h1>Корзина</h1>
+								<a href="" target="blank">Корзина товаров</a>
 							</div>
-							<div class="col-xl-8 col-lg-7 col-md-6 position-relative">
-								<div class="buttons clearfix">
-									<span class="magnific-gallery">
-										<!-- <a href="{% static 'img/detail_1.jpg' %}" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_chat_alt"></i>View photos</a> -->
-										<a href="{% static 'img/detail_2.jpg' %}" title="Photo title" data-effect="mfp-zoom-in"></a>
-										<a href="{% static 'img/detail_3.jpg' %}" title="Photo title" data-effect="mfp-zoom-in"></a>
-									</span>
-									<a href="{% url 'index' %}" class="btn_hero wishlist"><i class="icon_chat_alt"></i>В корзину</a>
-								</div>
-							</div>
+							
 						</div>
 						<!-- /row -->
 					</div>
@@ -41,61 +33,87 @@
 		</div>
 		<!--/hero_in-->
 
-		
+		<nav class="secondary_nav sticky_horizontal">
+		    <div class="container">
+		        <ul id="secondary_nav">
+		            <li><a href="{% url 'index' %}">Главная</a></li>
+		            <li><a href="{% url 'cart' %}">Корзина</a></li>
+		            
+		            <li><a href="{% url 'index' %}"><i class="icon_chat_alt"></i>Контакты</a></li>
+		        </ul>
+		    </div>
+		    <span></span>
+		</nav>
+		<!-- /secondary_nav -->
+
 		<div class="bg_gray">
 		    <div class="container margin_detail">
 		        <div class="row">
 		            <div class="col-lg-8 list_menu">
 		                <section id="section-1">
-		                    <h4>Описание</h4>
-                            <p>{{ product.description }}</p>
-                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+		                    <h4>Заказы</h4>
+		                    <div class="row">
+                                {% if cart_items %}
+                                {% for item in cart_items %}
+		                        <div class="col-md-6">
+		                            <a class="menu_item modal_dialog" href="{% url 'product_detail' item.product.id  %}">
+		                                <figure><img src="{{ item.product.image.url }}" data-src="{{ item.product.image.url }}" alt="{{ item.product.title }}" class="lazy"></figure>
+		                                <h3>{{ item.product.title }} {{ item.product.price }} KGS</h3>
+		                                <p>Количество: {{ item.quantity }}</p>
+		                                <strong>{{ item.total_price }} KGS</strong>
+		                            </a>
+		                        </div>
+                                {% endfor %}
+                                {% endif %}
+		                    </div>
 		                    <!-- /row -->
 		                </section>
 		                <!-- /section -->
-		                
 		            </div>
 		            <!-- /col -->
 		            <div class="col-lg-4" id="sidebar_fixed">
 		                <div class="box_order mobile_fixed">
 		                    <div class="head">
-		                        <h3>Связаться</h3>
-		                    	<small>Или позвоните на наш номер +996 772 34 32 06</small>
+		                        <h3>Общая сумма</h3>
 		                        <a href="#0" class="close_panel_mobile"><i class="icon_close"></i></a>
 		                    </div>
 		                    <!-- /head -->
 		                    <div class="main">
-		                         <div id="message-detail-contact"></div>
-				                    <form method="post" action="{% static 'assets/detail_contact.php' %}" id="detail_contact" autocomplete="off">
-				                    	<input type="text" name="restaurant_name" id="restaurant_name" value="Pizzeria Da Aldredo" hidden="hidden">
-				                    	<div class="form-group">
-				                    		<input type="text" name="name_detail_contact" id="name_detail_contact" class="form-control" placeholder="Имя">
-					                    </div>
-					                    <div class="form-group">
-					                    	<input type="text" name="telephone_detail_contact" id="telephone_detail_contact" class="form-control" placeholder="Номер телефона">
-					                    </div>
-					                    <!-- <div class="form-group add_bottom_15">
-					                    	<textarea class="form-control" name="message_detail" id="message_detail" placeholder="Your message"></textarea>
-					                    </div> -->
-					                    <div class="btn_1_mobile" style="position: relative;">
-											<input class="btn_1 gradient full-width" type="submit" value="Отправить" id="submit-message">
-						               </div>
-				                    </form>
-				                </div>
-							</div>
-							
-							<form method="post" action="{% url 'add_to_cart' %}">
-								<div class="btn_1_mobile" style="position: relative;">
-									{% csrf_token %}
-									<input type="hidden" name="product_id" value="{{ product.id }}">
-									<input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" name="quantity" min="1" value="1">
-									<input class="btn_1 gradient full-width" type="submit" value="В корзину" style="margin-top: 20px;">
-								</div>
-							</form>
-
+		                        <ul class="clearfix">
+                                    {% if cart_items %}
+                                    {% for item in cart_items %}
+		                            <li><a href="{% url 'product_detail' item.product.id  %}">{{ item.quantity }} {{ item.product.title }} {{ item.product.price }} KGS</a></span><span>{{ item.total_price }} KGS</span></li>
+		                            {% endfor %}
+                                    {% endif %}
+		                        </ul>
+		                        <ul class="clearfix">
+		                            <li>Предытог<span>{{ total_price }} KGS</span></li>
+		                            <li>Доставка<span>Бесплатно</span></li>
+		                            <li class="total">Итого<span>{{ total_price }} KGS</span></li>
+		                        </ul>
+		                        <div class="row opt_order">
+		                            <div class="col-6">
+		                                <label class="container_radio">Курьер
+		                                    <input type="radio" value="option1" name="opt_order" checked>
+		                                    <span class="checkmark"></span>
+		                                </label>
+		                            </div>
+		                            <div class="col-6">
+		                                <label class="container_radio">Самовывоз
+		                                    <input type="radio" value="option1" name="opt_order">
+		                                    <span class="checkmark"></span>
+		                                </label>
+		                            </div>
+		                        </div>
+	
+		                        <div class="btn_1_mobile">
+		                            <a href="order.html" class="btn_1 gradient full-width mb_5">Оформить</a>
+		                            <div class="text-center"><small>После заказа, вам позвонят наши менеджера для уточнения</small></div>
+		                        </div>
+		                    </div>
 		                </div>
 		                <!-- /box_order -->
-		                <div class="btn_reserve_fixed"><a href="#0" class="btn_1 gradient full-width">Send a Message</a></div>
+		                <div class="btn_reserve_fixed"><a href="#0" class="btn_1 gradient full-width">View Basket</a></div>
 		            </div>
 		        </div>
 		        <!-- /row -->
@@ -108,19 +126,19 @@
 			<div class="row">
 				<div class="col-lg-8 list_menu">
 					<section id="section-5">
-						<h4>Отзывы</h4>
+						<h4>Reviews</h4>
 					    <div class="row add_bottom_30 d-flex align-items-center reviews">
 					        <div class="col-md-3">
 					            <div id="review_summary">
 					                <strong>8.5</strong>
-					                <em>{{ product.title }}</em>
-					                <small>40 отзывов</small>
+					                <em>Superb</em>
+					                <small>Based on 4 reviews</small>
 					            </div>
 					        </div>
 					        <div class="col-md-9 reviews_sum_details">
 					            <div class="row">
 					                <div class="col-md-6">
-					                    <h6>Хорошое обслуживание</h6>
+					                    <h6>Food Quality</h6>
 					                    <div class="row">
 					                        <div class="col-xl-10 col-lg-9 col-9">
 					                            <div class="progress">
@@ -130,7 +148,7 @@
 					                        <div class="col-xl-2 col-lg-3 col-3"><strong>9.0</strong></div>
 					                    </div>
 					                    <!-- /row -->
-					                    <h6>Качество</h6>
+					                    <h6>Service</h6>
 					                    <div class="row">
 					                        <div class="col-xl-10 col-lg-9 col-9">
 					                            <div class="progress">
@@ -142,7 +160,7 @@
 					                    <!-- /row -->
 					                </div>
 					                <div class="col-md-6">
-					                    <h6>Сервис</h6>
+					                    <h6>Punctuality</h6>
 					                    <div class="row">
 					                        <div class="col-xl-10 col-lg-9 col-9">
 					                            <div class="progress">
@@ -152,7 +170,7 @@
 					                        <div class="col-xl-2 col-lg-3 col-3"><strong>6.0</strong></div>
 					                    </div>
 					                    <!-- /row -->
-					                    <h6>Доставка</h6>
+					                    <h6>Price</h6>
 					                    <div class="row">
 					                        <div class="col-xl-10 col-lg-9 col-9">
 					                            <div class="progress">
@@ -393,19 +411,76 @@
 </div>
 <!-- /Sign In Modal -->
 
-<!-- Modal item details -->
+<!-- Modal item order -->
 <div id="modal-dialog" class="zoom-anim-dialog mfp-hide">
     <div class="small-dialog-header">
         <h3>Cheese Quesadilla</h3>
     </div>
-    <div class="content pb-1">
-    	<figure><img src="img/menu_item_large_1.jpg" alt="" class="img-fluid"></figure>
-       <h6 class="mb-1">Ingredients</h6>
-       <p>Carrot, tomatoes, mushrooms, onions, olives, beans, peppers, spinach.</p>
-       <h6 class="mb-1">Nutritional values</h6>
-       <p>Calories: 380. Fat: 18 grams. Carbs: 39 grams.</p>
+    <div class="content">
+        <h5>Quantity</h5>
+        <div class="numbers-row">
+            <input type="text" value="1" id="qty_1" class="qty2 form-control" name="quantity">
+        </div>
+        <h5>Size</h5>
+        <ul class="clearfix">
+            <li>
+                <label class="container_radio">Medium<span>+ $3.30</span>
+                    <input type="radio" value="option1" name="options_1">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container_radio">Large<span>+ $5.30</span>
+                    <input type="radio" value="option2" name="options_1">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container_radio">Extra Large<span>+ $8.30</span>
+                    <input type="radio" value="option3" name="options_1">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+        </ul>
+        <h5>Extra Ingredients</h5>
+        <ul class="clearfix">
+            <li>
+                <label class="container_check">Extra Tomato<span>+ $4.30</span>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container_check">Extra Peppers<span>+ $2.50</span>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container_check">Extra Ham<span>+ $4.30</span>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+        </ul>
     </div>
-</div>
-<!-- /Modal item details  -->
+    <div class="footer">
+        <div class="row small-gutters">
+            <div class="col-md-4">
+                <button type="reset" class="btn_1 outline full-width mb-mobile">Cancel</button>
+            </div>
+            <div class="col-md-8">
+                <button type="reset" class="btn_1 full-width">Add to cart</button>
+            </div>
+        </div>
+        <!-- /Row -->
+    </div>
+    </div>
+    <!-- /Modal item order -->
 	
+    <!-- SPECIFIC SCRIPTS -->
+    <script src="{% static 'js/sticky_sidebar.min.js' %}"></script>
+    <script src="{% static 'js/sticky-kit.min.js' %}"></script>
+    <script src="{% static 'js/specific_detail.js' %}"></script>
+
 {% endblock %}

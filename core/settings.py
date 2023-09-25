@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.settings',
     'apps.billing',
     'apps.products',
+    'apps.carts',
     'apps.telegram',
     'apps.users',
 ]
