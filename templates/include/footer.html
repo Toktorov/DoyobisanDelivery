@@ -1,0 +1,74 @@
+<footer>
+    <div class="wave footer"></div>
+    <div class="container margin_60_40 fix_mobile">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <h3 data-bs-target="#collapse_1">Страницы</h3>
+                <div class="collapse dont-collapse-sm links" id="collapse_1">
+                    <ul>
+                        <li><a href="about.html">Главная</a></li>
+                        <li><a href="submit-restaurant.html">Еда</a></li>
+                        <li><a href="help.html">Отзывы</a></li>
+                        <li><a href="register.html">Контакты</a></li>
+                        <li><a href="blog.html">Корзина</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 data-bs-target="#collapse_2">Еда</h3>
+                <div class="collapse dont-collapse-sm links" id="collapse_2">
+                    <ul>
+                        {% for product in products %}
+                        <li><a href="grid-listing-filterscol.html">{{ product.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                    <h3 data-bs-target="#collapse_3">Конакты</h3>
+                <div class="collapse dont-collapse-sm contacts" id="collapse_3">
+                    <ul>
+                        <li><i class="icon_house_alt"></i>Кырызстан, Бишкек, ​Токтогула, 90​1 этаж​</li>
+                        <li><i class="icon_mobile"></i>+996 550 03 00 40</li>
+                        <li><i class="icon_mobile"></i>+996 700 03 00 40</li>
+                        <li><i class="icon_mail_alt"></i><a href="#0">doyobisan@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+        <hr>
+        <div class="row add_bottom_25">
+            <div class="col-lg-6">
+                <ul class="footer-selector clearfix">
+                    <li>
+                        <div class="styled-select lang-selector">
+                            <select>
+                                <option value="English" selected>English</option>
+                                <option value="French">French</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="Russian">Russian</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="styled-select currency-selector">
+                            <select>
+                                <option value="US Dollars" selected>US Dollars</option>
+                                <option value="Euro">Euro</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><img src="{{ setting.logo.url }}" data-src="{{ setting.logo.url }}" alt="{{ setting.title }}" width="10%"class="lazy"></li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <ul class="additional_links">
+                    <li><a href="{% url 'index' %}">Условия использования</a></li>
+                    <li><a href="{% url 'index' %}">Конфиденциальность</a></li>
+                    <li><span>Codex Studio</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
