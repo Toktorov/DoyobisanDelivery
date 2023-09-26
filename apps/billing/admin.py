@@ -3,9 +3,14 @@ from django.contrib import admin
 from apps.billing.models import Billing, BillingProduct
 
 # Register your models here.
+class ProductTabularInline(admin.TabularInline):
+    model = BillingProduct
+    extra = 0
+
 @admin.register(Billing)
 class BillingAdmin(admin.ModelAdmin):
-    list_display = ('billing_receipt_type', 'total_price', 'payment_code', 'created')
+    list_display = ('id', 'total_price', 'address', 'phone', 'billing_receipt_type', 'payment_code', 'created')
+    inlines = [ProductTabularInline]
 
 @admin.register(BillingProduct)
 class BillingProductAdmin(admin.ModelAdmin):

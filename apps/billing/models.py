@@ -1,21 +1,25 @@
 from django.db import models
-from django.utils.translation import gettext as _
 import uuid
 
 from apps.products.models import Product
 
 # Create your models here.
 class Billing(models.Model):
-    class BillingReceiptTypeChoices(models.TextChoices):
-        PICKUP = 'Pickup', _('Самовывоз')
-        DELIVERY = 'Delivery', _('Доставка')
     billing_receipt_type = models.CharField(
-        max_length=100, choices=BillingReceiptTypeChoices.choices,
-        default=BillingReceiptTypeChoices.DELIVERY,
-        verbose_name=_('Вид получения товара')
+        max_length=100,
+        default='Самовывоз',
+        verbose_name=('Вид получения товара')
     )
     total_price = models.PositiveIntegerField(
-        verbose_name="Итоговая цена товаров"
+        verbose_name="Итоговая цена товаров",
+    )
+    address = models.CharField(
+        max_length=300,
+        verbose_name="Адрес доставки"
+    )
+    phone = models.CharField(
+        max_length=200,
+        verbose_name="Номер телефона"
     )
     payment_code = models.CharField(
         max_length=20, unique=True,
@@ -44,7 +48,7 @@ class BillingProduct(models.Model):
     billing = models.ForeignKey(Billing, on_delete=models.CASCADE, related_name='billing_products')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Товар")
     quantity = models.PositiveIntegerField(verbose_name="Количество товаров")
-    price = models.PositiveBigIntegerField(verbose_name="Цена товара")
+    price = models.PositiveBigIntegerField(verbose_name="Цена товара", default=0)
 
     def __str__(self):
         return f"{self.billing} - {self.product} ({self.quantity} шт.)"

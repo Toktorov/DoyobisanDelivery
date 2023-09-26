@@ -91,72 +91,74 @@
 		            <!-- /col -->
 		            <div class="col-lg-4" id="sidebar_fixed">
 		                <div class="box_order mobile_fixed">
-		                    <div class="head">
-		                        <h3>Общая сумма</h3>
-		                        <a href="{% url 'index' %}" class="close_panel_mobile"><i class="icon_close"></i></a>
-		                    </div>
-		                    <!-- /head -->
-		                    <div class="main">
-		                        <ul class="clearfix">
-                                    {% if cart_items %}
-                                    {% for item in cart_items %}
-									<!-- <a href="{% url 'remove_from_cart' item.product.id %}" class="remove-from-cart"><i class="icon_close"></i> Удалить</a> -->
-		                            <li><a href="{% url 'product_detail' item.product.id  %}">{{ item.quantity }} {{ item.product.title }} {{ item.product.price }} KGS</a></span><span>{{ item.total_price }} KGS</span></li>
-		                            {% endfor %}
-                                    {% endif %}
-		                        </ul>
-		                        <ul class="clearfix">
-		                            <li>Предытог<span>{{ total_price }} KGS</span></li>
-		                            <li>Доставка<span>Бесплатно</span></li>
-		                            <li class="total">Итого<span>{{ total_price }} KGS</span></li>
-		                        </ul>
-		                        <div class="row opt_order">
-		                            <div class="col-6">
-		                                <label class="container_radio">Доставка
-		                                    <input type="radio" name="delivery" value="курьер" id="courier">
-		                                    <span class="checkmark"></span>
-		                                </label>
-		                            </div>
-		                            <div class="col-6">
-		                                <label class="container_radio">Самовывоз
-		                                    <input type="radio" name="delivery" value="самовывоз" id="pickup">
-		                                    <span class="checkmark"></span>
-		                                </label>
-		                            </div>
-		                        </div>
-								
-								<div class="row opt_order">
-		                            <div class="col-6">
-										<label for="payment">Адрес доставки:</label>
-										<input type="text" placeholder="Бишкек, Чуйская 185" name="address">
-									</div>
+							<form action="{% url 'create_billing' %}" method="post">
+								{% csrf_token %}
+								<div class="head">
+									<h3>Общая сумма</h3>
+									<a href="{% url 'index' %}" class="close_panel_mobile"><i class="icon_close"></i></a>
 								</div>
-
-								<div class="row opt_order">
-		                            <div class="col-6">
-										<label for="payment">Ваш номер телефона:</label>
-										<input type="text" placeholder="0772343206" name="address">
+								<!-- /head -->
+								<div class="main">
+									<ul class="clearfix">
+										{% if cart_items %}
+										{% for item in cart_items %}
+										<!-- <a href="{% url 'remove_from_cart' item.product.id %}" class="remove-from-cart"><i class="icon_close"></i> Удалить</a> -->
+										<li><a href="{% url 'product_detail' item.product.id  %}">{{ item.quantity }} {{ item.product.title }} {{ item.product.price }} KGS</a></span><span>{{ item.total_price }} KGS</span></li>
+										{% endfor %}
+										{% endif %}
+									</ul>
+									<ul class="clearfix">
+										<li>Предытог<span>{{ total_price }} KGS</span></li>
+										<li>Доставка<span>Бесплатно</span></li>
+										<li class="total">Итого<span>{{ total_price }} KGS</span></li>
+										<input type="hidden" name="total_price" value="{{ total_price }}">
+									</ul>
+									<div class="row opt_order">
+										<div class="col-6">
+											<label class="container_radio">Доставка
+												<input type="radio" name="billing_receipt_type" value="Доставка" id="courier">
+												<span class="checkmark"></span>
+											</label>
+										</div>
+										<div class="col-6">
+											<label class="container_radio">Самовывоз
+												<input type="radio" name="billing_receipt_type" value="Самовывоз" id="pickup">
+												<span class="checkmark"></span>
+											</label>
+										</div>
 									</div>
-								</div>
-
-								<div class="row opt_order">
-		                            <div class="col-6">
-										<label for="payment">Выберите способ оплаты:</label>
-										<select name="payment" id="payment">
-											<option value="кредитная_карта">Наличные</option>
-											<option value="paypal">Mbank</option>
-											<option value="банковский_перевод">Optima</option>
-											<option value="наличные">О деньги</option>
-										</select>
+									
+									<div class="row opt_order">
+										<div class="col-6">
+											<label for="payment">Адрес доставки:</label>
+											<input type="text" placeholder="Бишкек, Чуйская 185" name="address">
+										</div>
 									</div>
-								</div>
 
-								
-	
-		                        <div class="btn_1_mobile">
-		                            <a href="order.html" class="btn_1 gradient full-width mb_5">Оформить</a>
-		                            <div class="text-center"><small>После заказа, вам позвонят наши менеджера для уточнения</small></div>
-		                        </div>
+									<div class="row opt_order">
+										<div class="col-6">
+											<label for="payment">Ваш номер телефона:</label>
+											<input type="text" placeholder="0772343206" name="phone">
+										</div>
+									</div>
+
+									<div class="row opt_order">
+										<div class="col-6">
+											<label for="payment">Выберите способ оплаты:</label>
+											<select name="payment" id="payment">
+												<option value="кредитная_карта">Наличные</option>
+												<option value="paypal">Mbank</option>
+												<option value="банковский_перевод">Optima</option>
+												<option value="наличные">О деньги</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="btn_1_mobile">
+										<button type="submit" class="btn_1 gradient full-width mb_5">Оформить</button>
+										<div class="text-center"><small>После заказа, вам позвонят наши менеджера для уточнения</small></div>
+									</div>
+								</form>
 		                    </div>
 		                </div>
 		                <!-- /box_order -->
