@@ -48,7 +48,8 @@ class BillingProduct(models.Model):
     billing = models.ForeignKey(Billing, on_delete=models.CASCADE, related_name='billing_products')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Товар")
     quantity = models.PositiveIntegerField(verbose_name="Количество товаров")
-    price = models.PositiveBigIntegerField(verbose_name="Цена товара", default=0)
+    price = models.PositiveBigIntegerField(verbose_name="Итоговая цена", default=0)
+    status = models.BooleanField(verbose_name="Статус", default=False)
 
     def __str__(self):
         return f"{self.billing} - {self.product} ({self.quantity} шт.)"

@@ -9,9 +9,9 @@ class ProductTabularInline(admin.TabularInline):
 
 @admin.register(Billing)
 class BillingAdmin(admin.ModelAdmin):
-    list_display = ('id', 'total_price', 'address', 'phone', 'billing_receipt_type', 'payment_code', 'created')
+    list_display = ('id', 'total_price', 'address', 'phone', 'billing_receipt_type', 'payment_code', 'created', 'status')
     inlines = [ProductTabularInline]
 
 @admin.register(BillingProduct)
 class BillingProductAdmin(admin.ModelAdmin):
-    list_display = ('billing', 'product', 'quantity', 'price')
+    list_display = ('billing', 'product', 'quantity', 'price', 'status')

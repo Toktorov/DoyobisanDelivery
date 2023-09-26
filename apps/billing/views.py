@@ -51,6 +51,7 @@ def create_billing_from_cart(request):
                 billing=billing,
                 product=cart_item.product,
                 quantity=cart_item.quantity,
+                price=cart_item.total
             )
 
         # Опционально: Очищаем корзину пользователя после создания заказа

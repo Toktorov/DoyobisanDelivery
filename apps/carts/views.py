@@ -16,6 +16,7 @@ def add_to_cart(request):
             product_id = form.cleaned_data['product_id']
             print("WORK",product_id)
             quantity = form.cleaned_data['quantity']
+            price = form.cleaned_data['price']
             product = Product.objects.get(id=product_id)
 
             # Получаем или создаем корзину для текущей сессии
@@ -31,6 +32,7 @@ def add_to_cart(request):
 
             # Если CartItem существует, обновляем его количество, иначе создаем новый объект
             if cart_item:
+                cart_item.total += price
                 cart_item.quantity += quantity
                 cart_item.save()
             else:
