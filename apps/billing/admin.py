@@ -9,4 +9,4 @@ class BillingAdmin(admin.ModelAdmin):
 
 @admin.register(BillingProduct)
 class BillingProductAdmin(admin.ModelAdmin):
-    list_display = ('product', 'quantity')
+    list_display = ('billing', 'product', 'quantity', 'price')
