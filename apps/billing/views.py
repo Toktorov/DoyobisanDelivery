@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.db import transaction
 from django.db.models import F
+import asyncio
 
 from apps.settings.models import Setting
 from apps.carts.models import Cart, CartItem
 from apps.billing.models import Billing, BillingProduct
+from apps.telegram.views import send_post_billing
 
 # Create your views here.
 def confirm(request, address, phone, payment_code):
@@ -41,20 +43,35 @@ def create_billing_from_cart(request):
         # Получаем товары из корзины пользователя
         cart = Cart.objects.get_or_create(session_key=session_key)
         print(cart)
+
         # Создаем BillingProduct для каждого товара в корзине
-        
+        billing_products = []
         cart_products = CartItem.objects.filter(cart__session_key=session_key)
         print(cart_products)
         for cart_item in cart_products:
             print(cart_item)
-            BillingProduct.objects.create(
+            billing_product = BillingProduct.objects.create(
                 billing=billing,
                 product=cart_item.product,
                 quantity=cart_item.quantity,
                 price=cart_item.total
             )
+            billing_products.append(billing_product)
 
         # Опционально: Очищаем корзину пользователя после создания заказа
         # cart.clear()
+
+        #Товары в список
+        item_names = ", ".join([str(item.product) for item in billing_products])
+
+        #Отправляем уведомление в группу telegram
+        asyncio.run(send_post_billing(
+            id=billing.id,
+            products=item_names,
+            payment_code=billing.payment_code,
+            address=billing.address,
+            phone=billing.phone,
+            total_price=billing.total_price
+        ))
 
         return redirect('confirm', billing.address, billing.phone, billing.payment_code)
