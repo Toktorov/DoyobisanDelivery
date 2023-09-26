@@ -2,10 +2,16 @@ from django.shortcuts import render, redirect
 from django.db import transaction
 from django.db.models import F
 
+from apps.settings.models import Setting
 from apps.carts.models import Cart, CartItem
 from apps.billing.models import Billing, BillingProduct
 
 # Create your views here.
+def confirm(request, address, phone, payment_code):
+    setting = Setting.objects.latest('id')
+    result = {'address':address, 'phone':phone, 'payment_code':payment_code}
+    return render(request, 'billing/confirm.html', locals())
+
 def create_billing_from_cart(request):
     user_cart = request.POST.get('user_cart')
     billing_receipt_type = request.POST.get('billing_receipt_type')
@@ -50,4 +56,4 @@ def create_billing_from_cart(request):
         # Опционально: Очищаем корзину пользователя после создания заказа
         # cart.clear()
 
-        return redirect('index')
+        return redirect('confirm', billing.address, billing.phone, billing.payment_code)
