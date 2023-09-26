@@ -66,6 +66,6 @@ def clear_cart(request):
 def remove_from_cart(request, product_id):
     session_key = request.session.session_key
     if session_key:
-        CartItem.objects.filter(cart__session_key=session_key, product__id=product_idx).delete()
+        CartItem.objects.filter(cart__session_key=session_key, product__id=product_id).delete()
 
     return redirect('cart')

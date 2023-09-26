@@ -59,7 +59,8 @@ def create_billing_from_cart(request):
             billing_products.append(billing_product)
 
         # Опционально: Очищаем корзину пользователя после создания заказа
-        # cart.clear()
+        delete_cart = Cart.objects.get(session_key=session_key)
+        delete_cart.delete()
 
         #Товары в список
         item_names = ", ".join([str(item.product) for item in billing_products])
