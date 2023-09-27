@@ -31,7 +31,7 @@ async def start(message:types.Message):
         last_name=message.from_user.last_name,
         user_role="User"
     )
-    await message.answer(f"Привет {message.from_user.full_name}!", reply_markup=profile_keyboard)
+    await message.answer(f"Привет {message.from_user.full_name}!")
 
 """"Фукнция для показа профиля пользователя"""
 @dp.message_handler(text="Профиль")
@@ -109,33 +109,56 @@ async def take_order_button(callback_query: types.CallbackQuery):
     except:
         await bot.answer_callback_query(callback_query.id, text="Зарегистрируйтесь в боте /start")
 
-"""Функиция (В пути) для курьером после того как они успешно получили заказ"""
-@dp.message_handler(lambda call: call.data == "on_road")
+from asgiref.sync import sync_to_async
+
+@dp.callback_query_handler(lambda call: call.data == 'on_road')
 async def delivery_on_road(callback_query: types.CallbackQuery):
-    print("ON ROAD")
-    user = await sync_to_async(TelegramUser.objects.get)(user_id=int(callback_query["from"]["id"]))
+    user_id = callback_query.from_user.id
     id_billing = callback_query.message.text.split()[1].replace('#', '')
+    print(id_billing)
+
+    # Используем sync_to_async для асинхронного доступа к моделям Django
+    user = await sync_to_async(TelegramUser.objects.get)(user_id=user_id)
+
     if user.user_role == "Delivery":
-        order = await sync_to_async(BillingDelivery.objects.get())(
-            id = int(id_billing)
-        )
+        # Асинхронно получаем объект заказа
+        order = await sync_to_async(BillingDelivery.objects.get)(billing_id=int(id_billing))
         order.delivery = "On way"
-        order.save()
+        await sync_to_async(order.save)()
+
         await bot.edit_message_text(
             chat_id=callback_query.message.chat.id,
             message_id=callback_query.message.message_id,
             text=f"{callback_query.message.text }\nСтатус: В пути курьер @{user.username}",
-            reply_markup=on_road_keyboard  # Если вы хотите также обновить клавиатуру
+            reply_markup=on_road_keyboard
         )
         await bot.answer_callback_query(callback_query.id, text=f"Вы в пути {id_billing}")
     else:
         await bot.answer_callback_query(callback_query.id, text=f"У вас нет прав, свяжитесь с менеджерами")
 
 """Функция (Завершить) для курьера после того как он успешно выполнил заказ"""
-@dp.message_handler(lambda call: call.data == "finish_order")
+@dp.callback_query_handler(lambda call: call.data == "finish_order")
 async def delivery_finish_order(callback_query: types.CallbackQuery):
-    await bot.answer_callback_query(callback_query.id, text=f"Завершить заказ")
-    # finish_order
+    user_id = callback_query.from_user.id
+    id_billing = callback_query.message.text.split()[1].replace('#', '')
+
+    # Используем sync_to_async для асинхронного доступа к моделям Django
+    user = await sync_to_async(TelegramUser.objects.get)(user_id=user_id)
+    
+    if user.user_role == "Delivery":
+        # Асинхронно получаем объект заказа
+        order = await sync_to_async(BillingDelivery.objects.get)(billing_id=int(id_billing))
+        order.delivery = "Delivered"
+        await sync_to_async(order.save)()
+
+        await bot.edit_message_text(
+            chat_id=callback_query.message.chat.id,
+            message_id=callback_query.message.message_id,
+            text=f"{callback_query.message.text }\nСтатус: Завершен",
+        )
+        await bot.answer_callback_query(callback_query.id, text=f"Вы успешно завершили заказ")
+    else:
+        await bot.answer_callback_query(callback_query.id, text=f"У вас нет прав, свяжитесь с менеджерами")
 
 """Функция для отправки биллинга в телеграм группу"""
 async def send_post_billing(id, products, payment_method, payment_code, address, phone, total_price):
