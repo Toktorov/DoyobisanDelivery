@@ -33,8 +33,14 @@ billing_keyboard = types.InlineKeyboardMarkup().add(*billing_buttons)
 
 @dp.callback_query_handler(lambda call: call.data == 'delete_order')
 async def delete_order_button(callback_query: types.CallbackQuery):
-    
-    await bot.answer_callback_query(callback_query.id, text="У вас нет прав на удаления")
+    print(callback_query["from"]["id"])
+    user = await sync_to_async(TelegramUser.objects.get)(user_id=int(callback_query["from"]["id"]))
+    print(user.user_role)
+    if user.user_role == "Manager":
+        await bot.delete_message(chat_id=callback_query.message.chat.id, message_id=callback_query.message.message_id)
+        await bot.answer_callback_query(callback_query.id, text="Успешно удалено")
+    else:
+        await bot.answer_callback_query(callback_query.id, text="У вас нет прав на удаления")
 
 @dp.callback_query_handler(lambda call: call.data == 'taxi_order')
 async def taxi_order_button(callback_query: types.CallbackQuery):
