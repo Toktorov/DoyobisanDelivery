@@ -60,7 +60,8 @@ class BillingDelivery(models.Model):
     delivery = models.CharField(
         max_length=100,
         choices=STATUS_DELIVERY_CHOICE,
-        verbose_name="Статус доставки"
+        verbose_name="Статус доставки",
+        default="Принят"
     )
     created = models.DateTimeField(
         auto_now_add=True,
@@ -71,8 +72,8 @@ class BillingDelivery(models.Model):
         return f"{self.billing}"
     
     class Meta:
-        verbose_name = "Доставка товара"
-        verbose_name_plural = "Доставка товаров"
+        verbose_name = "Доставка"
+        verbose_name_plural = "Доставки"
 
 class BillingDeliveryHistory(models.Model):
     delivery = models.ForeignKey(
