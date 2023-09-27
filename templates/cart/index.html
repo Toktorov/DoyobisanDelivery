@@ -30,7 +30,7 @@
 	
 	<main>
 
-		<div class="hero_in detail_page background-image" data-background="url(https://dasushi.od.ua/storage/article-preview/app-article/41/origin/sushi-polza-i-vred1653924777.jpg?t=1653924778)">
+		<div class="hero_in detail_page background-image" data-background="url({% static 'img/shushi1.jpg' %})">
 			<div class="wrapper opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 				
 				<div class="container">
@@ -71,7 +71,7 @@
 		                <section id="section-1">
 		                    <h4>Заказы</h4>
 		                    <div class="row">
-                                {% if cart_items %}
+                           
                                 {% for item in cart_items %}
 		                        <div class="col-md-6">
 		                            <a class="menu_item modal_dialog" href="{% url 'product_detail' item.product.id  %}">
@@ -81,8 +81,18 @@
 		                                <strong>{{ item.total_price }} KGS</strong>
 		                            </a>
 		                        </div>
+								{% empty %}
+								<div class="col-md-6">
+		                            <!-- <a class="menu_item modal_dialog" href="{% url 'cart' %}">
+		                                <figure><img src="{% static 'img/thumb_detail_5.jpg' %}" data-src="{% static 'img/thumb_detail_5.jpg' %}" alt="Пустой" class="lazy"></figure>
+		                                <h3>Пусто</h3>
+		                                <p>Ваша корзина пуст</p>
+		                                <strong>0 KGS</strong>
+		                            </a> -->
+									<h1>Ваша корзина пуст</h1>
+		                        </div>
                                 {% endfor %}
-                                {% endif %}
+                               
 		                    </div>
 		                    <!-- /row -->
 		                </section>
@@ -113,6 +123,7 @@
 										<li class="total">Итого<span>{{ total_price }} KGS</span></li>
 										<input type="hidden" name="total_price" value="{{ total_price }}">
 									</ul>
+									{% if cart_items %}
 									<div class="row opt_order">
 										<div class="col-6">
 											<label class="container_radio">Доставка
@@ -161,12 +172,12 @@
 
 									<div class="row opt_order">
 										<div class="col-6">
-											<label for="payment">Выберите способ оплаты:</label>
-											<select name="payment" id="payment">
-												<option value="кредитная_карта">Наличные</option>
-												<option value="paypal">Mbank</option>
-												<option value="банковский_перевод">Optima</option>
-												<option value="наличные">О деньги</option>
+											<label for="payment_method">Выберите способ оплаты:</label>
+											<select name="payment_method" id="payment_method">
+												<option value="Наличные">Наличные</option>
+												<option value="Mbank">Mbank</option>
+												<option value="Optima">Optima</option>
+												<option value="О деньги">О деньги</option>
 											</select>
 										</div>
 									</div>
@@ -176,6 +187,7 @@
 										<button type="submit" class="btn_1 gradient full-width mb_5">Оформить</button>
 										<div class="text-center"><small>После заказа, вам позвонят наши менеджера для уточнения</small></div>
 									</div>
+									{% endif %}
 								</form>
 		                    </div>
 		                </div>
