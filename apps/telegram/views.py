@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher, types, executor
 from asgiref.sync import sync_to_async
 from logging import basicConfig, INFO
 
-from apps.telegram.models import TelegramUser
+from apps.telegram.models import TelegramUser, BillingDelivery, BillingDeliveryHistory
 
 # Create your views here.
 print(settings.TELEGRAM_BOT_TOKEN)
@@ -33,9 +33,7 @@ billing_keyboard = types.InlineKeyboardMarkup().add(*billing_buttons)
 
 @dp.callback_query_handler(lambda call: call.data == 'delete_order')
 async def delete_order_button(callback_query: types.CallbackQuery):
-    print(callback_query["from"]["id"])
     user = await sync_to_async(TelegramUser.objects.get)(user_id=int(callback_query["from"]["id"]))
-    print(user.user_role)
     if user.user_role == "Manager":
         await bot.delete_message(chat_id=callback_query.message.chat.id, message_id=callback_query.message.message_id)
         await bot.answer_callback_query(callback_query.id, text="Успешно удалено")
@@ -48,7 +46,19 @@ async def taxi_order_button(callback_query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda call: call.data == 'take_order')
 async def take_order_button(callback_query: types.CallbackQuery):
-    await bot.answer_callback_query(callback_query.id, text="Вы успешно взяли заказ")
+    user = await sync_to_async(TelegramUser.objects.get)(user_id=int(callback_query["from"]["id"]))
+    id_billing = callback_query.message.text.split()[1].replace('#', '')
+    print(id_billing)
+    print(user.id)
+    if user.user_role == "Delivery":
+        delivery_create = await sync_to_async(BillingDelivery.objects.create)(
+            billing_id = int(id_billing),
+            telegram_user_id = user.id,
+            delivery = "Принят"
+        )
+        await bot.answer_callback_query(callback_query.id, text="Вы успешно взяли заказ")
+    else:
+        await bot.answer_callback_query(callback_query.id, text="Вы не можете взять заказ")
 
 
 async def send_post_billing(id, products, payment_method, payment_code, address, phone, total_price):
@@ -58,5 +68,5 @@ async def send_post_billing(id, products, payment_method, payment_code, address,
 Код оплаты: {payment_code}
 Адрес: {address}
 Номер: {phone}
-Цена: {total_price} KGS""",
+Итого: {total_price} KGS""",
 reply_markup=billing_keyboard)
