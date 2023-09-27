@@ -9,7 +9,8 @@ class ProductTabularInline(admin.TabularInline):
 
 @admin.register(Billing)
 class BillingAdmin(admin.ModelAdmin):
-    list_display = ('id', 'total_price', 'address', 'phone', 'billing_receipt_type', 'payment_code', 'created', 'status')
+    list_display = ('id', 'total_price', 'address', 'payment_method', 'phone', 'billing_receipt_type', 'payment_code', 'created', 'status')
+    search_fields = ('id', 'total_price', 'address', 'payment_method', 'phone', 'billing_receipt_type', 'payment_code', 'created', 'status')
     inlines = [ProductTabularInline]
 
 @admin.register(BillingProduct)

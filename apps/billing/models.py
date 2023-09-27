@@ -21,6 +21,11 @@ class Billing(models.Model):
         max_length=200,
         verbose_name="Номер телефона"
     )
+    payment_method = models.CharField(
+        max_length=100,
+        verbose_name="Способ оплаты",
+        default="Наличные"
+    )
     payment_code = models.CharField(
         max_length=20, unique=True,
         verbose_name="Код оплаты биллинга",

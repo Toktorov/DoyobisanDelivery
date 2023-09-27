@@ -23,13 +23,15 @@ def create_billing_from_cart(request):
     print(total_price)
     address = request.POST.get('address')
     phone = request.POST.get('phone')
+    payment_method = request.POST.get('payment_method')
     with transaction.atomic():
         # Создаем объект Billing
         billing = Billing.objects.create(
             billing_receipt_type=billing_receipt_type,
             total_price=total_price,
             address=address,
-            phone=phone
+            phone=phone,
+            payment_method=payment_method
             # Другие поля Billing могут быть заполнены здесь
         )
         # Получаем или создаем корзину для текущей сессии
@@ -69,6 +71,7 @@ def create_billing_from_cart(request):
         asyncio.run(send_post_billing(
             id=billing.id,
             products=item_names,
+            payment_method=billing.payment_method,
             payment_code=billing.payment_code,
             address=billing.address,
             phone=billing.phone,

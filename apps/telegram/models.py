@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 class TelegramUser(models.Model):
+    USER_ROLE_CHOICE = (
+        ('User', 'Пользователь'),
+        ('Delivery', 'Курьер'),
+        ('Manager', 'Менеджер')
+    )
     username = models.CharField(
         max_length=200, verbose_name="Имя пользователя",
         blank=True, null=True
@@ -18,8 +23,15 @@ class TelegramUser(models.Model):
         max_length=200, verbose_name="Фамилия",
         blank=True, null=True
     )
+    user_role = models.CharField(
+        max_length=100,
+        choices=USER_ROLE_CHOICE,
+        verbose_name="Роль пользователя",
+        default="Пользователь"
+    )
     created = models.DateTimeField(
-        auto_now_add=True, verbose_name="Дата создания"
+        auto_now_add=True, 
+        verbose_name="Дата создания",
     )
 
     def __str__(self):

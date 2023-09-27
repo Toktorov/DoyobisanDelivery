@@ -23,15 +23,32 @@ async def start(message:types.Message):
     await message.answer(f"Привет {message.from_user.full_name}!")
 
 billing_buttons = [
-    types.InlineKeyboardButton("Такси", callback_data='taxi'),
-    types.InlineKeyboardButton("Взять заказ", callback_data='order')
+    types.InlineKeyboardButton('Удалить', callback_data='delete_order'),
+    types.InlineKeyboardButton("Такси", callback_data='taxi_order'),
+    types.InlineKeyboardButton("Взять заказ", callback_data='take_order')
 ]
 
 billing_keyboard = types.InlineKeyboardMarkup().add(*billing_buttons)
 
-async def send_post_billing(id, products, payment_code, address, phone, total_price):
+
+@dp.callback_query_handler(lambda call: call.data == 'delete_order')
+async def delete_order_button(callback_query: types.CallbackQuery):
+    
+    await bot.answer_callback_query(callback_query.id, text="У вас нет прав на удаления")
+
+@dp.callback_query_handler(lambda call: call.data == 'taxi_order')
+async def taxi_order_button(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id, text="Такси")
+
+@dp.callback_query_handler(lambda call: call.data == 'take_order')
+async def take_order_button(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id, text="Вы успешно взяли заказ")
+
+
+async def send_post_billing(id, products, payment_method, payment_code, address, phone, total_price):
     await bot.send_message(-4013644681, f"""Биллинг #{id}
 Товары: {products}
+Способ оплаты: {payment_method}
 Код оплаты: {payment_code}
 Адрес: {address}
 Номер: {phone}
