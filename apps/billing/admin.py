@@ -52,7 +52,7 @@ class SaleSummaryAdmin(admin.ModelAdmin):
         metrics = {
             'title': F('billing_products__product__title'),  # Замените 'billing__title' на фактический путь к полю 'title' в модели BillingProduct
             'total': F('billing_products__quantity'),
-            'total_sales': Sum('billing_products__price'),
+            'payment_method': F('payment_method'),
         }
 
         response.context_data['summary'] = list(
@@ -66,6 +66,7 @@ class SaleSummaryAdmin(admin.ModelAdmin):
             'title': Sum('billing_products__product__title'),  # Замените 'billing__title' на фактический путь к полю 'title' в модели BillingProduct
             'total': Sum('billing_products__quantity'),
             'total_sales': Sum('billing_products__price'),
+            'payment_method': Count('payment_method'),
         }
 
         response.context_data['summary_total'] = dict(

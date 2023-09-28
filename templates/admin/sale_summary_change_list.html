@@ -31,7 +31,7 @@
             <th>
               <div class="text">
                 <a href="#">
-                  <strong>% процент от продаж</strong>
+                  <strong>Тип оплаты</strong>
                 </a>
               </div>
             </th>
@@ -45,15 +45,15 @@
             <td> {{ row.total  }} </td>
             <td> {{ row.total_sales  }} KGS</td>
             <td>
-              <strong>{{ row.total_sales }}%</strong>
+              <strong>{{ row.payment_method }}</strong>
             </td>
           </tr>
           {% endfor %}
           <tr style="font-weight:bold; border-top:2px solid #DDDDDD;">
-            <td> Итого </td>
+            <td> Итого:</td>
             <td> {{ summary_total.total | intcomma }} </td>
             <td> {{ summary_total.total_sales | default:0 }} KGS</td>
-            <td> {{ summary_total.total_sales  }} </td>
+            <td> {{ summary_total.payment_method  }} </td>
         </tr>
         </tbody>
 
