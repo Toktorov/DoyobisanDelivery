@@ -68,5 +68,5 @@ class BillingProduct(models.Model):
 class SaleSummary(Billing):
     class Meta:
         proxy = True
-        verbose_name = 'Продажа товар'
-        verbose_name_plural = 'Продажи товаров'
+        verbose_name = 'Отчет продажа товар'
+        verbose_name_plural = 'Отчеты продажи товаров'

@@ -2,7 +2,9 @@ from django.contrib import admin
 from rangefilter.filter import DateRangeFilter
 from datetime import date, timedelta, datetime
 from django.utils.translation import gettext as _
-from django.db.models import Sum, Count
+from django.db.models import Sum, Count, F, Min, Max
+from django.db.models.functions import Trunc
+from django.db.models import DateTimeField
 
 from apps.billing.models import Billing, BillingProduct, SaleSummary
 
@@ -48,9 +50,9 @@ class SaleSummaryAdmin(admin.ModelAdmin):
             return response
 
         metrics = {
-            # 'title': ,
-            'total': Count('id'),
-            'total_sales': Sum('total_price'),
+            'title': F('billing_products__product__title'),  # Замените 'billing__title' на фактический путь к полю 'title' в модели BillingProduct
+            'total': F('billing_products__quantity'),
+            'payment_method': F('payment_method'),
         }
 
         response.context_data['summary'] = list(
@@ -59,7 +61,31 @@ class SaleSummaryAdmin(admin.ModelAdmin):
         print(response)
         print(metrics)
 
+        ################################
+        total_metrics = {
+            'title': Sum('billing_products__product__title'),  # Замените 'billing__title' на фактический путь к полю 'title' в модели BillingProduct
+            'total': Sum('billing_products__quantity'),
+            'total_sales': Sum('billing_products__price'),
+            'payment_method': Count('payment_method'),
+        }
+
+        response.context_data['summary_total'] = dict(
+            qs.aggregate(**total_metrics)
+        )
+
         return response
+    
+    def get_next_in_date_hierarchy(request, date_hierarchy):
+        if date_hierarchy + '__day' in request.GET:
+            return 'hour'
+
+        if date_hierarchy + '__month' in request.GET:
+            return 'day'
+
+        if date_hierarchy + '__year' in request.GET:
+            return 'week'
+
+        return 'month'
 
 @admin.register(Billing)
 class BillingAdmin(admin.ModelAdmin):
