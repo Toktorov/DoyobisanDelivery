@@ -61,35 +61,30 @@ class SaleSummaryAdmin(admin.ModelAdmin):
         print(response)
         print(metrics)
 
-        ######################
+        ################################
+        total_metrics = {
+            'title': Sum('billing_products__product__title'),  # Замените 'billing__title' на фактический путь к полю 'title' в модели BillingProduct
+            'total': Sum('billing_products__quantity'),
+            'total_sales': Sum('billing_products__price'),
+        }
 
-        summary_over_time = qs.annotate(
-            period=Trunc(
-                'created',
-                'day',
-                output_field=DateTimeField(),
-            ),
-        ).values('period').annotate(**metrics).order_by('-created')
-
-        summary_range = summary_over_time.aggregate(
-            low=Min('total'),
-            high=Max('total'),
+        response.context_data['summary_total'] = dict(
+            qs.aggregate(**total_metrics)
         )
-        high = summary_range.get('high', 0)
-        low = summary_range.get('low', 0)
-        print(high, low)
-
-        response.context_data['summary_over_time'] = [{
-            'period': x['period'],
-            'total': x['total'] or 0,
-            'pct': \
-               ((x['total'] or 0) - low) / (high - low) * 100
-               if high > low else 0,
-        } for x in summary_over_time]
-
-        print(response.context_data['summary_over_time'])
 
         return response
+    
+    def get_next_in_date_hierarchy(request, date_hierarchy):
+        if date_hierarchy + '__day' in request.GET:
+            return 'hour'
+
+        if date_hierarchy + '__month' in request.GET:
+            return 'day'
+
+        if date_hierarchy + '__year' in request.GET:
+            return 'week'
+
+        return 'month'
 
 @admin.register(Billing)
 class BillingAdmin(admin.ModelAdmin):
