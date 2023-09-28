@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
 
+    'rangefilter',
+    'django.contrib.humanize',
+
     #apps
     'apps.settings',
     'apps.billing',

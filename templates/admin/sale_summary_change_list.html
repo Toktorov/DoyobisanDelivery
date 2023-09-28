@@ -1,0 +1,58 @@
+<!-- sales/templates/admin/sale_summary_change_list.html -->
+{% extends "admin/change_list.html" %}
+{% load humanize %}
+
+{% block content_title %}
+    <h1> Sales Summary </h1>
+{% endblock %}
+
+{% block result_list %}
+    <!-- Our content goes here... -->
+    <div class="results">
+        <table>
+    
+        <thead>
+          <tr>
+            <th>
+              <div class="text">
+                <a href="#">Название</a>
+              </div>
+            </th>
+            <th>
+              <div class="text">
+                <a href="#">Количество</a>
+              </div>
+            </th>
+            <th>
+              <div class="text">
+                <a href="#">Цена</a>
+              </div>
+            </th>
+            <th>
+              <div class="text">
+                <a href="#">
+                  <strong>% процент от продаж</strong>
+                </a>
+              </div>
+            </th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          {% for row in summary %}
+          <tr class="{% cycle 'row1' 'row2' %}">
+            <td> {{ row.title }} </td>
+            <td> {{ row.total  }} </td>
+            <td> {{ row.total_sales  }} KGS</td>
+            <td>
+              <strong>{{ row.total_sales }}</strong>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    
+      </table>
+    </div>
+{% endblock %}
+
+{% block pagination %}{% endblock %}

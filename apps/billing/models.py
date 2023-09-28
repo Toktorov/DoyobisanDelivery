@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 import uuid
 
 from apps.products.models import Product
@@ -55,6 +56,7 @@ class BillingProduct(models.Model):
     quantity = models.PositiveIntegerField(verbose_name="Количество товаров")
     price = models.PositiveBigIntegerField(verbose_name="Итоговая цена", default=0)
     status = models.BooleanField(verbose_name="Статус", default=False)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
 
     def __str__(self):
         return f"{self.billing} - {self.product} ({self.quantity} шт.)"
@@ -62,3 +64,9 @@ class BillingProduct(models.Model):
     class Meta:
         verbose_name = "Продукт биллинга"
         verbose_name_plural = "Продукты биллингов"
+
+class SaleSummary(Billing):
+    class Meta:
+        proxy = True
+        verbose_name = 'Продажа товар'
+        verbose_name_plural = 'Продажи товаров'
