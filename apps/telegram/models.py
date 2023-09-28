@@ -47,7 +47,8 @@ class BillingDelivery(models.Model):
     STATUS_DELIVERY_CHOICE = (
         ('Accepted', 'Принят'),
         ('On way', 'В пути'),
-        ('Delivered', 'Доставлен')
+        ('Delivered', 'Доставлен'),
+        ('Cancel', 'Отменен')
     )
     billing = models.ForeignKey(
         Billing, on_delete=models.SET_NULL,

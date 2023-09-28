@@ -4,6 +4,8 @@
 
 <link href="{% static 'css/detail-page.css' %}" rel="stylesheet">
 
+
+
 <body data-spy="scroll" data-bs-target="#secondary_nav" data-offset="75">
 				
 	{% include 'include/header.html' %}
@@ -89,8 +91,16 @@
 									{% csrf_token %}
 									<input type="hidden" name="product_id" value="{{ product.id }}">
 									<input type="hidden" name="price" value="{{ product.price }}">
-									<input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" name="quantity" min="1" value="1">
-									<input class="btn_1 gradient full-width" type="submit" value="В корзину" style="margin-top: 20px;">
+									<!-- <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" name="quantity" min="1" value="1"> -->
+									<div class="row opt_order" >
+										<div class="col-6" >
+
+											<input class="js-result form-control" type="number" name="quantity" min="1" value="1">
+											<button type="button" class="btn_1 gradient js-minus">-</button>
+											<button type="button" class="btn_1 gradient js-plus">+</button>
+										</div>
+									</div>
+									<input class="btn_1 gradient full-width" type="submit" value="В корзину" style="margin-top: 10px;">
 								</div>
 							</form>
 
@@ -394,19 +404,23 @@
 </div>
 <!-- /Sign In Modal -->
 
-<!-- Modal item details -->
-<div id="modal-dialog" class="zoom-anim-dialog mfp-hide">
-    <div class="small-dialog-header">
-        <h3>Cheese Quesadilla</h3>
-    </div>
-    <div class="content pb-1">
-    	<figure><img src="img/menu_item_large_1.jpg" alt="" class="img-fluid"></figure>
-       <h6 class="mb-1">Ingredients</h6>
-       <p>Carrot, tomatoes, mushrooms, onions, olives, beans, peppers, spinach.</p>
-       <h6 class="mb-1">Nutritional values</h6>
-       <p>Calories: 380. Fat: 18 grams. Carbs: 39 grams.</p>
-    </div>
-</div>
-<!-- /Modal item details  -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const quantityInput = document.querySelector(".js-result");
+        const plusButton = document.querySelector(".js-plus");
+        const minusButton = document.querySelector(".js-minus");
+
+        plusButton.addEventListener("click", function() {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+
+        minusButton.addEventListener("click", function() {
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+    });
+</script>
 	
 {% endblock %}
