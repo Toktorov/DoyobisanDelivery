@@ -53,7 +53,7 @@ billing_keyboard = types.InlineKeyboardMarkup().add(*billing_buttons)
 
 order_buttons = [
     types.InlineKeyboardButton('В пути', callback_data="on_road"),
-    types.InlineKeyboardButton('Завершить', callback_data="finish_order")
+    types.InlineKeyboardButton('Отменить заказ', callback_data="cancel_order"),
 ]
 order_keyboard = types.InlineKeyboardMarkup().add(*order_buttons)
 
@@ -111,6 +111,8 @@ async def take_order_button(callback_query: types.CallbackQuery):
 
 from asgiref.sync import sync_to_async
 
+"""Функция delivery_on_road (В пути) используется курьером после получения заказа
+чтобы в базе отображалось что курбер в пути к заказчику"""
 @dp.callback_query_handler(lambda call: call.data == 'on_road')
 async def delivery_on_road(callback_query: types.CallbackQuery):
     user_id = callback_query.from_user.id
@@ -135,6 +137,11 @@ async def delivery_on_road(callback_query: types.CallbackQuery):
         await bot.answer_callback_query(callback_query.id, text=f"Вы в пути {id_billing}")
     else:
         await bot.answer_callback_query(callback_query.id, text=f"У вас нет прав, свяжитесь с менеджерами")
+
+"""Функция отменить заказ используется для отмены заказа курьером"""
+@dp.callback_query_handler(lambda call: call.data == "cancel_order")
+async def delivery_cancel_order(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id, text=f"Вы отменили заказ")
 
 """Функция (Завершить) для курьера после того как он успешно выполнил заказ"""
 @dp.callback_query_handler(lambda call: call.data == "finish_order")
