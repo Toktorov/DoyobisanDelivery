@@ -45,14 +45,72 @@
             <td> {{ row.total  }} </td>
             <td> {{ row.total_sales  }} KGS</td>
             <td>
-              <strong>{{ row.total_sales }}</strong>
+              <strong>{{ row.total_sales }}%</strong>
             </td>
           </tr>
           {% endfor %}
         </tbody>
-    
       </table>
     </div>
+
+<h2 style="margin-top: 10px;"> Проценты продаж </h2>
+    
+<!-- <style>
+    h2 {
+        margin-top: 10px;
+    }
+
+    .results {
+        margin-top: 20px;
+    }
+
+    .bar-chart {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .bar {
+        background-color: #0074d9;
+        width: 30px;
+        margin: 0 5px;
+        position: relative;
+    }
+
+    .bar-tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    .bar:hover .bar-tooltip {
+        display: block;
+    }
+</style> -->
+
+<div class="results">
+    <div class="bar-chart">
+    {% for x in summary_over_time %}
+    <!-- <h1>{{x.pct}}</h1>
+    <h1>{{ x.total | default:0 | intcomma }}</h1>
+    <h1>{{x.period | date:"d/m/Y"}}</h1>  -->
+        <div class="bar">
+            <div class="bar-tooltip" style="height: {{ x.pct }}%;"> <!-- Преобразование в проценты -->
+                {{x.total | default:0 | intcomma }}<br>
+                {{x.period | date:"d/m/Y"}}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+
 {% endblock %}
 
 {% block pagination %}{% endblock %}

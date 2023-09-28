@@ -2,7 +2,9 @@ from django.contrib import admin
 from rangefilter.filter import DateRangeFilter
 from datetime import date, timedelta, datetime
 from django.utils.translation import gettext as _
-from django.db.models import Sum, Count
+from django.db.models import Sum, Count, F, Min, Max
+from django.db.models.functions import Trunc
+from django.db.models import DateTimeField
 
 from apps.billing.models import Billing, BillingProduct, SaleSummary
 
@@ -48,9 +50,9 @@ class SaleSummaryAdmin(admin.ModelAdmin):
             return response
 
         metrics = {
-            # 'title': ,
-            'total': Count('id'),
-            'total_sales': Sum('total_price'),
+            'title': F('billing_products__product__title'),  # Замените 'billing__title' на фактический путь к полю 'title' в модели BillingProduct
+            'total': F('billing_products__quantity'),
+            'total_sales': Sum('billing_products__price'),
         }
 
         response.context_data['summary'] = list(
@@ -58,6 +60,34 @@ class SaleSummaryAdmin(admin.ModelAdmin):
         )
         print(response)
         print(metrics)
+
+        ######################
+
+        summary_over_time = qs.annotate(
+            period=Trunc(
+                'created',
+                'day',
+                output_field=DateTimeField(),
+            ),
+        ).values('period').annotate(**metrics).order_by('-created')
+
+        summary_range = summary_over_time.aggregate(
+            low=Min('total'),
+            high=Max('total'),
+        )
+        high = summary_range.get('high', 0)
+        low = summary_range.get('low', 0)
+        print(high, low)
+
+        response.context_data['summary_over_time'] = [{
+            'period': x['period'],
+            'total': x['total'] or 0,
+            'pct': \
+               ((x['total'] or 0) - low) / (high - low) * 100
+               if high > low else 0,
+        } for x in summary_over_time]
+
+        print(response.context_data['summary_over_time'])
 
         return response
 
