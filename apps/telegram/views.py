@@ -138,10 +138,37 @@ async def delivery_on_road(callback_query: types.CallbackQuery):
     else:
         await bot.answer_callback_query(callback_query.id, text=f"У вас нет прав, свяжитесь с менеджерами")
 
-"""Функция отменить заказ используется для отмены заказа курьером"""
 @dp.callback_query_handler(lambda call: call.data == "cancel_order")
 async def delivery_cancel_order(callback_query: types.CallbackQuery):
-    await bot.answer_callback_query(callback_query.id, text=f"Вы отменили заказ")
+    user_id = callback_query.from_user.id
+    id_billing = callback_query.message.text.split()[1].replace('#', '')
+    print("Billing ID:", id_billing)
+
+    # Используем sync_to_async для асинхронного доступа к моделям Django
+    user = await sync_to_async(TelegramUser.objects.get)(user_id=user_id)
+    
+    if user.user_role == "Delivery":
+        # Асинхронно получаем объект заказа
+        order = await sync_to_async(BillingDelivery.objects.get)(billing_id=int(id_billing))
+        order.delivery = "Cancelled"  # Измените статус на "Отменен"
+        await sync_to_async(order.save)()
+
+        # Редактируем существующее сообщение
+        chat_id = callback_query.message.chat.id
+        message_id = callback_query.message.message_id
+        new_message_text = f"""{callback_query.message.text }\nСтатус: Отменен курьером @{user.username}"""
+        await bot.edit_message_text(new_message_text, chat_id, message_id)
+        await bot.send_message(-4013644681, f"Биллинг #{id_billing}\nСтатус: Отменен курьером @{user.username}")
+        await bot.send_message(-4013644681, f"{callback_query.message.text }\nСтатус: Отменен курьером @{user.username}", reply_markup=billing_keyboard)
+        await sync_to_async(order.delete)()
+        # await bot.edit_message_text(
+        #     chat_id=-4013644681,
+        #     message_id=cal
+        # )
+
+        await bot.answer_callback_query(callback_query.id, text=f"Вы отменили заказ")
+    else:
+        await bot.answer_callback_query(callback_query.id, text=f"У вас нет прав, свяжитесь с менеджерами")
 
 """Функция (Завершить) для курьера после того как он успешно выполнил заказ"""
 @dp.callback_query_handler(lambda call: call.data == "finish_order")
