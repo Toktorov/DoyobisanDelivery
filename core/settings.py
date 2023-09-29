@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'rangefilter',
     'django.contrib.humanize',
+    'mptt',
 
     #apps
     'apps.settings',
