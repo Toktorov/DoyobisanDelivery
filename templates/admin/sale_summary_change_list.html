@@ -50,7 +50,7 @@
           </tr>
           {% endfor %}
           <tr style="font-weight:bold; border-top:2px solid #DDDDDD;">
-            <td> Итого:</td>
+            <td> Итого: {{ summary_total.payment_method  }}</td>
             <td> {{ summary_total.total | intcomma }} </td>
             <td> {{ summary_total.total_sales | default:0 }} KGS</td>
             <td> {{ summary_total.payment_method  }} </td>
@@ -63,9 +63,6 @@
 
 <!-- <h2 style="margin-top: 10px;"> Отчет продажи товара </h2> -->
     
-
-
-
 {% endblock %}
 
 {% block pagination %}{% endblock %}

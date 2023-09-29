@@ -1,10 +1,9 @@
 from django.contrib import admin
 from rangefilter.filter import DateRangeFilter
-from datetime import date, timedelta, datetime
+from datetime import date, timedelta
 from django.utils.translation import gettext as _
-from django.db.models import Sum, Count, F, Min, Max
-from django.db.models.functions import Trunc
-from django.db.models import DateTimeField
+from django.db.models import Sum, Count, F
+from mptt.admin import MPTTModelAdmin
 
 from apps.billing.models import Billing, BillingProduct, SaleSummary
 
@@ -29,9 +28,11 @@ class CustomDateFieldListFilter(admin.DateFieldListFilter):
             }),
         )
 
+
 class ProductTabularInline(admin.TabularInline):
     model = BillingProduct
     extra = 0
+
 
 @admin.register(SaleSummary)
 class SaleSummaryAdmin(admin.ModelAdmin):
@@ -52,6 +53,7 @@ class SaleSummaryAdmin(admin.ModelAdmin):
         metrics = {
             'title': F('billing_products__product__title'),  # Замените 'billing__title' на фактический путь к полю 'title' в модели BillingProduct
             'total': F('billing_products__quantity'),
+            'total_sales': Sum('billing_products__price'),
             'payment_method': F('payment_method'),
         }
 
@@ -87,8 +89,9 @@ class SaleSummaryAdmin(admin.ModelAdmin):
 
         return 'month'
 
+
 @admin.register(Billing)
-class BillingAdmin(admin.ModelAdmin):
+class BillingAdmin(MPTTModelAdmin):
     list_display = ('id', 'total_price', 'address', 'payment_method', 'phone', 'billing_receipt_type', 'payment_code', 'created', 'status')
     search_fields = ('id', 'total_price', 'address', 'payment_method', 'phone', 'billing_receipt_type', 'payment_code', 'created', 'status')
     inlines = [ProductTabularInline]
