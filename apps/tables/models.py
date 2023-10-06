@@ -5,6 +5,10 @@ import uuid, qrcode
 
 # Create your models here.
 class Table(models.Model):
+    title = models.CharField(
+        max_length=255,
+        verbose_name="Заголовок"
+    )
     number = models.IntegerField(
         verbose_name="Номер стола",
         unique=True,

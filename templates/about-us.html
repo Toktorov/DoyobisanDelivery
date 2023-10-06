@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MG ORGANICS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/libs/jquery-ui-1.13.2.custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/libs/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/libs/fontawesome-free-6.2.1-web/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/libs/slick-1.8.1/slick/slick.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/mg-menu.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
+
+        <script src="assets/js/jquery-3.6.1.min.js"></script>
+        <script src="assets/libs/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="assets/libs/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+        <script src="assets/libs/slick-1.8.1/slick/slick.min.js"></script>
+
+    </head>
+    <body>
+        <!--MG Header Start Here-->
+        <header>
+            <div class="mg-header-outer mg-page-header">
+                <div class="container">
+                    <div class="mg-home-header">
+                        <div class="row gx-0 gx-md-2 align-items-center">
+                            <div class="col-md-3 col-lg-3 col-4">
+                                <div class="header-logo">
+                                    <a class="mg-logo text-decoration-none" href="index.html"><span>MG</span> ORGANICS</a>
+                                </div>
+                            </div>
+                            <div class="col-md-2  col-lg-5 col-2 order-3 order-md-0 d-flex d-md-block justify-content-end justify-content-md-start text-end">
+                                <div>
+                                    <div class="mg-menu-overlay"></div>
+                                    <nav class="mg-menu" id="menu">
+                                        <div class="menu-mobile-header">
+                                            <button type="button" class="menu-mobile-arrow"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                                            <div class="menu-mobile-title"></div>
+                                            <button type="button" class="menu-mobile-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                        </div>
+                                        <ul class="menu-section mg-menu-outer">
+                                            <li class="menu-item-has-children">
+                                                <a class="active-menu-light" href="javascript:void(0);">Home <img src="assets/images/icons/home3/dropdown-cut-arrow-light.png" alt=""></a>
+                                                <div class="mg-sub-menu-outer">
+                                                    <div class="menu-subs">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="index.html">Home 1</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="home2.html">Home 2</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="home3.html">Home 3</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="menu-item-has-children">
+                                                <a href="javascript:void(0);">Groceries <img class="mg-desktop-arrow" src="assets/images/icons/Drop-down-arrow-light.svg" alt=""><img class="mg-mobile-arrow" src="assets/images/icons/Drop-down-arrow.svg" alt=""></a>
+                                                <div class="mg-sub-menu-outer">
+                                                    <div class="menu-subs">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="shop.html">Fruits & Vegetables</a>
+                                                                <img src="assets/images/gallery/menu-hover-img4.jpg" alt="">
+                                                            </li>
+                                                            <li>
+                                                                <a href="beverages.html">Beverages</a>
+                                                                <img src="assets/images/gallery/menu-hover-img2.jpg" alt="">
+                                                            </li>
+                                                            <li>
+                                                                <a href="meat.html">Meat & Seafoods</a>
+                                                                <img src="assets/images/gallery/menu-hover-img5.jpg" alt="">
+                                                            </li>
+                                                            <li>
+                                                                <a href="bakery.html">Bakery</a>
+                                                                <img src="assets/images/gallery/menu-hover-img1.jpg" alt="">
+                                                            </li>
+                                                            <li>
+                                                                <a href="snacks.html">Biscuit & Snacks</a>
+                                                                <img src="assets/images/gallery/menu-hover-img3.jpg" alt="">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="menu-item-has-children">
+                                                <a href="javascript:void(0);">Pages <img class="mg-desktop-arrow" src="assets/images/icons/Drop-down-arrow-light.svg" alt=""><img class="mg-mobile-arrow" src="assets/images/icons/Drop-down-arrow.svg" alt=""></a>
+                                                <div class="mg-sub-menu-outer">
+                                                    <div class="menu-subs">
+                                                        <ul>
+                                                            <li class="mg-shop-page-main-link">
+                                                                <a href="shop.html">Collection</a>
+                                                                <div class="mg-cascading-menu-outer">
+                                                                    <div class="mg-cascading-menu">
+                                                                        <ul>
+                                                                            <li>
+                                                                                <a href="shop.html">Left Sidebar</a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="shop-style-2.html">Right Sidebar</a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="shop-style-4.html">Horizontal Filter</a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="shop-style-3.html">Off Canvas</a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li><a href="single-product.html">Product</a></li>
+                                                            <li><a href="cart.html">Cart</a></li>
+                                                            <li><a href="checkout.html">Checkout</a></li>
+                                                            <li><a href="thank-you.html">Thank you</a></li>
+                                                            <li><a href="profile.html">Profile Page</a></li>
+                                                            <li><a href="my-orders.html">My orders</a></li>
+                                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                                            <li><a href="blogs.html">Blogs</a></li>
+                                                            <li><a href="single-blog.html">Single blogs</a></li>
+                                                            <li><a href="about-us.html">About us</a></li>
+                                                            <li><a href="contact-us.html">Contact Us</a></li>
+                                                            <li><a href="privacy-policy.html">Privacy policy</a></li>
+                                                            <li><a href="my-account.html">My Account</a></li>
+                                                            <li><a href="login.html">Login/Register</a></li>
+                                                            <li><a href="faq.html">FAQs</a></li>
+                                                            <li><a href="404.html">404 page</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="menu-item mg-mobile-menu-link">
+                                                <a href="login.html">
+                                                    Profile
+                                                </a>
+                                            </li>
+                                            <li class="menu-item mg-mobile-menu-link">
+                                                <a href="wishlist.html">
+                                                    Wishlist
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <div>
+                                        <button type="button" class="menu-mobile-toggle mg-burger-menu-icon">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-6 text-end">
+                                <div class="row align-items-center">
+                                    <div class="col-4 col-lg-4 col-md-4 p-0">
+                                        <div class="">
+                                            <div class="mg-contact-link">
+                                                <a href="contact-us.html">Connect with us<img src="assets/images/icons/Right-arrow.svg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8 col-md-8">
+                                        <div class="header-icons-outer">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#mg-desktop-search-popup">
+                                                        <img class="mg-desktop-icons" src="assets/images/icons/serach-icon-new.png" alt="">
+                                                        <img class="mg-hover-icon" src="assets/images/icons/hover-serach-icon-new.png" alt="">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="mg-mobie-hide-icon" href="login.html">
+                                                        <img class="mg-desktop-icons" src="assets/images/icons/Profile-icon.svg" alt="">
+                                                        <img class="mg-hover-icon" src="assets/images/icons/hover-profile-icon.png" alt="">
+                                                    </a>
+                                                </li>
+                                                <li class="mg-mobie-hide-icon">
+                                                    <a class="mg-notify-count" href="wishlist.html">
+                                                        <img class="mg-desktop-icons" src="assets/images/icons/heart-new.png" alt=""><span class="mg-header-icon-counter">2</span>
+                                                        <img class="mg-hover-icon" src="assets/images/icons/hover-heart-new.png" alt="">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="mg-notify-count" href="cart.html">
+                                                        <img class="mg-desktop-icons" src="assets/images/icons/Cart-Icon.svg" alt=""><span class="mg-header-icon-counter">0</span>
+                                                        <img class="mg-hover-icon" src="assets/images/icons/hover-Cart-Icon.png" alt="">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--MG Header End Here-->
+        <!-- desktop Search Pop Up start here -->
+        <div class="modal gx-0 fade mg-search-pop-up mg-desktop-search-popup" id="mg-desktop-search-popup" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close mg-pop-up-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                            <span class="mg-spcb-bar-one"></span>
+                            <span class="mg-spcb-bar-two"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body align-items-center d-flex">
+                        <div class="mg-search-pop-form-outer w-100">
+                            <div class="search-heading"></div>
+                            <form class="">
+                                <input class="form-control" type="text" placeholder="What do you need..." aria-label="Search">
+                                <div class="text-center"><button class="btn" type="submit">Search</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Desktop Search Pop Up End Here -->
+        <!--page header section start here-->
+        <div class="mg-page-header-section mg-cart-page">
+            <div class="container">
+                <div class="mg-page-header-content">
+                    <div>
+                        <h5>About Us</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur. Condimentum sed sed blandit purus nec nibh tortor ipsum.</p>
+                    </div>
+                    <div class="mg-breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-decoration-none" href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active">About</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--page header section end here-->
+        <!--about section start here-->
+        <div class="mg-about-section">
+            <div class="container">
+                <div class="mg-about-inner">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-5 col-sm-12 mg-about-img-outer">
+                            <div class="mg-about-image">
+                                <img src="assets/images/gallery/about-img1.jpg" alt="">
+                                <div class="mg-about-overlay-img">
+                                    <img src="assets/images/gallery/about-img2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-7 col-sm-12 d-flex align-items-center">
+                            <div class="mg-about-text-content">
+                                <span>About OrganicFarm</span>
+                                <h5>We Provide Top Quality Grocery Products</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur. In mauris tortor eget faucibus risus sagittis. Odio eget pharetra viverra blandit faucibus orci vitae. Eget tincidunt et ac ut natoque arcu. Posuere in semper phasellus donec bibendum turpis mattis et molestie.</p>
+
+                                <p>Vitae ac cum sed lorem eget praesent nec nec gravida. In mi suspendisse nisl imperdiet. In praesent enim pellentesque donec arcu.</p>
+
+                                <p>Tellus pellentesque convallis dis urna tincidunt rhoncus. Vel morbi sit elit amet nunc massa platea. Sit dolor ut sollicitudin diam facilisis egestas velit id tellus. Non cursus aliquet aliquam molestie lectus aenean risus. Dictum sit tellus nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--about section end here-->
+        
+        <!--feature section start here-->
+        <div class="mg-feature-section mg-about-feature">
+            <div class="container">
+                <div class="mg-feature-service-outer">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 mg-feature-main">
+                            <div class="mg-feature-box">
+                                <div class="card">
+                                    <div class="card-body text-start">
+                                        <img src="assets/images/icons/Truck.svg" alt="">
+                                        <h6 class="card-title">Fastest Delivery Within 30 Minutes</h6>
+                                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy text ever since the 1500s when an unknown printer took a.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 mg-feature-main">
+                            <div class="mg-feature-box">
+                                <div class="card">
+                                    <div class="card-body text-start">
+                                        <img src="assets/images/icons/mobile.svg" alt="">
+                                        <h6 class="card-title">Order Instant From Our App</h6>
+                                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy text ever since the 1500s when an unknown printer took a.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 mg-feature-main">
+                            <div class="mg-feature-box">
+                                <div class="card">
+                                    <div class="card-body text-start">
+                                        <img src="assets/images/icons/Map.svg" alt="">
+                                        <h6 class="card-title">Track Your Order With Map Coverage</h6>
+                                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy text ever since the 1500s when an unknown printer took a.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--feature section end here-->
+        <!--Counter Section Start Here-->
+        <section class="mg-counter-section">
+            <div class="counter-sec-outer yellow-bg" id="counter">
+                <div class="container">
+                    <div class="mg-counter-inner">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="mg-counter-box">
+                                    <div class="counter-text">
+                                        <span  class="counter-value" data-count="1248">0</span><span>+</span>
+                                    </div>
+                                    <div class="counter-des">
+                                        <h3>Satisfied Clients</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="mg-counter-box">
+                                    <div class="counter-text">
+                                        <span class="counter-value" data-count="190">10</span><span>+</span>
+                                    </div>
+                                    <div class="counter-des">
+                                        <h3>Expert Teams</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="mg-counter-box">
+                                    <div class="counter-text">
+                                        <span class="counter-value" data-count="300">5</span><span>+</span>
+                                    </div>
+                                    <div class="counter-des">
+                                        <h3>Activate Products</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="mg-counter-box">
+                                    <div class="counter-text">
+                                        <span class="counter-value" data-count="40">20</span><span>+</span>
+                                    </div>
+                                    <div class="counter-des">
+                                        <h3>Awards Winning</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Counter Section End Here-->
+        <!--faq section start here-->
+        <div class="mg-faq-section mg-faq-about">
+            <div class="container">
+                <div class="mg-faq-heading">
+                    <h5>Frequently Ask<br> Questions</h5>
+                </div>
+                <div class="mg-faq-inner">
+                    <div class="accordion" id="mg-accordian">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#mg-faq-1" aria-expanded="true">
+                                   <span class="me-4">01</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                </button>
+                            </h2>
+                            <div id="mg-faq-1" class="accordion-collapse collapse show" data-bs-parent="#mg-accordian">
+                                <div class="accordion-body">
+                                    <div class="mg-accordian-text-main d-flex">
+                                    <div class="mg-accordian-text">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mg-faq-2" aria-expanded="false">
+                                    <span class="me-4">02</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                </button>
+                            </h2>
+                            <div id="mg-faq-2" class="accordion-collapse collapse"  data-bs-parent="#mg-accordian">
+                                <div class="accordion-body">
+                                    <div class="mg-accordian-text-main d-flex">
+                                    <div class="mg-accordian-text">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mg-faq-3" aria-expanded="false">
+                                    <span class="me-4">03</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                </button>
+                            </h2>
+                            <div id="mg-faq-3" class="accordion-collapse collapse" data-bs-parent="#mg-accordian">
+                                <div class="accordion-body">
+                                    <div class="mg-accordian-text-main d-flex">
+                                    <div class="mg-accordian-text">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mg-faq-4" aria-expanded="false">
+                                    <span class="me-4">04</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                </button>
+                            </h2>
+                            <div id="mg-faq-4" class="accordion-collapse collapse" data-bs-parent="#mg-accordian">
+                                <div class="accordion-body">
+                                    <div class="mg-accordian-text-main d-flex">
+                                    <div class="mg-accordian-text">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mg-faq-5" aria-expanded="false">
+                                    <span class="me-4">05</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                </button>
+                            </h2>
+                            <div id="mg-faq-5" class="accordion-collapse collapse" data-bs-parent="#mg-accordian">
+                                <div class="accordion-body">
+                                    <div class="mg-accordian-text-main d-flex">
+                                    <div class="mg-accordian-text">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--faq section end here-->
+        <!--testimonial section start here-->
+        <div class="mg-testimonial-section">
+            <div class="container">
+                <div class="mg-testimonial-heading">
+                    <span>Testimonials</span>
+                    <h5>What Our Clients Say?</h5>
+                </div>
+                <div class="mg-testimonial-main">
+                    <div class="mg-testimonial-content-box">
+                        <div class="mg-tcb-inner">
+                            <p>“  Lorem ipsum dolor sit amet consectetur. Sed blandit dictumst pellentesque imperdiet sed phasellus at sit aliquam. Amet amet id quam quis aliquet sed at.”</p>
+                            <div class="mg-rating">
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                            </div>
+                            <h5>Jonathan Fernandez</h5>
+                        </div>
+                    </div>
+                    <div class="mg-testimonial-content-box">
+                        <div class="mg-tcb-inner">
+                            <p>“  Lorem ipsum dolor sit amet consectetur. Sed blandit dictumst pellentesque imperdiet sed phasellus at sit aliquam. Amet amet id quam quis aliquet sed at.”</p>
+                            <div class="mg-rating">
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                            </div>
+                            <h5>Jonathan Fernandez</h5>
+                        </div>
+                    </div>
+                    <div class="mg-testimonial-content-box">
+                        <div class="mg-tcb-inner">
+                            <p>“  Lorem ipsum dolor sit amet consectetur. Sed blandit dictumst pellentesque imperdiet sed phasellus at sit aliquam. Amet amet id quam quis aliquet sed at.”</p>
+                            <div class="mg-rating">
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                            </div>
+                            <h5>Jonathan Fernandez</h5>
+                        </div>
+                    </div>
+                    <div class="mg-testimonial-content-box">
+                        <div class="mg-tcb-inner">
+                            <p>“  Lorem ipsum dolor sit amet consectetur. Sed blandit dictumst pellentesque imperdiet sed phasellus at sit aliquam. Amet amet id quam quis aliquet sed at.”</p>
+                            <div class="mg-rating">
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                                <span><img src="assets/images/icons/Star.svg" alt=""></span>
+                            </div>
+                            <h5>Jonathan Fernandez</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="mg-testimonial-btn"></div>
+            </div>
+        </div>
+        <!--testimonial section end here-->
+        
+        <!--footer section start here-->
+        <footer class="mg-footer-section">
+            <div class="container">
+                <div class="mg-footer-feature">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="mg-ff-box">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="mg-ff-img">
+                                            <img src="assets/images/icons/Footer-truck.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                        <div class="mg-ff-text">
+                                            <h5>Free Shipping</h5>
+                                            <p>Lorem ipsum dolor sit amet<br> consectetur.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="mg-ff-box">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="mg-ff-img">
+                                            <img src="assets/images/icons/Discount-Footer.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                        <div class="mg-ff-text">
+                                            <h5>Daily Mega Discount</h5>
+                                            <p>Lorem ipsum dolor sit amet<br> consectetur.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="mg-ff-box">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="mg-ff-img">
+                                            <img src="assets/images/icons/Footer-apple.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                        <div class="mg-ff-text">
+                                            <h5>Daily Fresh Products</h5>
+                                            <p>Lorem ipsum dolor sit amet<br> consectetur.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mg-footer-links-main">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="mg-contact-box">
+                                <div class="mg-footer-text-section">
+                                    <h5>Get In Touch</h5>
+                                    <address>
+                                        Address:<br>
+                                        12 NW 19th Place, Pompano<br> 
+                                        Beach, fl, 33063  United States
+                                    </address>
+                                </div>
+                                <div class="mg-footer-contact">
+                                    <span>Need Help?</span><br>
+                                    <span>Call:</span> <a href="tel:+911234567890">+(1) 234 567 8900</a> <span>|</span> <a href="tel:+911234567890">+(1) 234 567 8900</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12">
+                            <div class="mg-footer-nav">
+                                <h5>Information</h5>
+                                <ul class="list-group">
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="mg-footer-nav">
+                                <h5>Categories</h5>
+                                <ul class="list-group">
+                                    <li><a href="shop.html">Fruits & Vegetables</a></li>
+                                    <li><a href="shop.html">Dairy & Beverages</a></li>
+                                    <li><a href="shop.html">Meats & Seafoods</a></li>
+                                    <li><a href="shop.html">Bakery</a></li>
+                                    <li><a href="shop.html">Biscuits & Snacks</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="mg-newsletter-box">
+                                <h5>Subscribe Newsletter</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur. Facilisis.</p>
+                                <form class="mg-newsletter-subs">
+                                    <input class="form-control" type="text" placeholder="Email Address...">
+                                    <button class="btn">
+                                        <img src="assets/images/icons/Testimonial-right-arrowd.svg" alt="">
+                                    </button>
+                                </form>
+                                    <ul class="">
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <img src="assets/images/icons/fb.svg" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <img src="assets/images/icons/ig.svg" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <img src="assets/images/icons/tw.svg" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <img src="assets/images/icons/yt.svg" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mg-footer-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="mg-footer-logo">
+                                <a class="mg-logo text-decoration-none" href="index.html"><span>MG</span> ORGANICS</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="mg-copy-right-text">
+                                    <span>Made with <i class="fa-solid fa-heart"></i> By <a href="javascript:void(0)';">MG Technologies.</a></span>
+                                </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="mg-fb-text">
+                                <a href="privacy-policy.html">Privacy Policy</a> <span>|</span> <a href="javascript:void(0)';">Terms of Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--footer section end here-->
+        <script src="assets/js/mg-menu.js"></script>
+        <script src="assets/js/mg-common.js"></script>
+        <script src="assets/js/about-us.js"></script>
+    </body>
+</html>
