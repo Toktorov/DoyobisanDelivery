@@ -15,6 +15,11 @@ class Table(models.Model):
     def __str__(self):
         return str(self.number)
     
+    def save(self, *args, **kwargs):
+        if not self.number:
+            self.number = str(uuid.uuid4().int)[:5]  # Генерируем UUID и оставляем только первые 20 цифр
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = "Стол"
         verbose_name_plural = "Столы"
