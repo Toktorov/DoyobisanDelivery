@@ -19,4 +19,4 @@ class TableOrderAdmin(admin.ModelAdmin):
 
 @admin.register(TableOrderItem)
 class TableOrderItemAdmin(admin.ModelAdmin):
-    list_display = ('product', 'quantity', 'total', 'order')    
+    list_display = ('product', 'quantity', 'total', 'table')    

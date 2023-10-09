@@ -14,7 +14,7 @@ def menu(request, table_uuid):
     return render(request, 'menu/index.html', locals())
 
 def add_to_order(request):
-    print("add to cart")
+    print("add to order")
     print(request.method)
     if request.method == 'POST':
         form = AddToOrderForm(request.POST)
@@ -32,10 +32,10 @@ def add_to_order(request):
                 request.session.save()
                 session_key = request.session.session_key
 
-            cart, _ = TableOrder.objects.get_or_create(session_key=session_key)
+            table, _ = TableOrder.objects.get_or_create(session_key=session_key)
 
             # Получаем объект CartItem по cart и product
-            cart_item = TableOrderItem.objects.filter(cart=cart, product=product).first()
+            table_item = TableOrderItem.objects.filter(table=table, product=product).first()
 
             # Если CartItem существует, обновляем его количество, иначе создаем новый объект
             if cart_item:
@@ -44,9 +44,9 @@ def add_to_order(request):
                 cart_item.quantity += quantity
                 cart_item.save()
             else:
-                cart_item = TableOrderItem.objects.create(cart=cart, product=product, quantity=quantity, total=price * quantity)
+                cart_item = TableOrderItem.objects.create(table=table, product=product, quantity=quantity, total=price * quantity)
 
-    return redirect('cart')
+    return redirect('order')
 
 def order(request):
     setting = Setting.objects.latest('id')
@@ -62,7 +62,7 @@ def order(request):
     #     cart_items = []
     #     total_price = 0
     # form = BillingForm()
-    return render(request, 'cart/index.html', locals())
+    return render(request, 'menu/order.html', locals())
 
 def clear_order(request):
     session_key = request.session.session_key
