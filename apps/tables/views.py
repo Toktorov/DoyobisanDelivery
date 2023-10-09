@@ -6,7 +6,7 @@ from apps.products.models import Product
 
 # Create your views here.
 def menu(request, table_uuid):
-    table = Table(id=table_uuid)
+    table = Table.objects.get(number=table_uuid)
     setting = Setting.objects.latest('id')
     products = Product.objects.all()
     return render(request, 'menu/index.html', locals())
