@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'apps.carts',
     'apps.telegram',
     'apps.users',
+    'apps.tables',
 ]
 
 MIDDLEWARE = [

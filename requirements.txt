@@ -22,8 +22,10 @@ multidict==6.0.4
 Pillow==10.0.1
 pydantic==2.3.0
 pydantic_core==2.6.3
+pypng==0.20220715.0
 python-dotenv==1.0.0
 pytz==2023.3.post1
+qrcode==7.4.2
 sqlparse==0.4.4
 typing_extensions==4.7.1
 yarl==1.9.2
