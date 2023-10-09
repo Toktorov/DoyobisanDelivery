@@ -47,8 +47,8 @@ class Table(models.Model):
         )
         print(qr)
         print("Hello World")
-        qr.add_data(f"https://doyobisan.webtm.ru/order/{self.number}/")
-        print(f"https://doyobisan.webtm.ru/order/{self.number}/")
+        qr.add_data(f"https://doyobisan.webtm.ru/menu/{self.number}/")
+        print(f"https://doyobisan.webtm.ru/menu/{self.number}/")
         qr.make(fit=True)
 
         buffer = BytesIO()
@@ -63,9 +63,9 @@ class Table(models.Model):
         verbose_name = "Стол"
         verbose_name_plural = "Столы"
 
-class Order(models.Model):
+class TableOrder(models.Model):
     session_key = models.CharField(max_length=40, unique=True, verbose_name="Ключ сессии")
-    items = models.ManyToManyField(Product, through='OrderItem', verbose_name="Товары")
+    items = models.ManyToManyField(Product, through='TableOrderItem', verbose_name="Товары")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Дата формирования заказа")
 
     def __str__(self):
@@ -75,8 +75,8 @@ class Order(models.Model):
         verbose_name = "Корзина"
         verbose_name_plural = "Корзины"
 
-class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name="Заказ")
+class TableOrderItem(models.Model):
+    order = models.ForeignKey(TableOrder, on_delete=models.CASCADE, verbose_name="Заказ")
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Товар")
     quantity = models.PositiveIntegerField(default=1, verbose_name="Количество товара")
     total = models.PositiveBigIntegerField(default=0, verbose_name="Итоговая цена товаров")
