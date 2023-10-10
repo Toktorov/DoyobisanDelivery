@@ -38,30 +38,30 @@ def add_to_order(request):
             table_item = TableOrderItem.objects.filter(table=table, product=product).first()
 
             # Если CartItem существует, обновляем его количество, иначе создаем новый объект
-            if cart_item:
-                print(cart_item.total + price)
-                cart_item.total += price * quantity
-                cart_item.quantity += quantity
-                cart_item.save()
+            if table_item:
+                print(table_item.total + price)
+                table_item.total += price * quantity
+                table_item.quantity += quantity
+                table_item.save()
             else:
-                cart_item = TableOrderItem.objects.create(table=table, product=product, quantity=quantity, total=price * quantity)
+                table_item = TableOrderItem.objects.create(table=table, product=product, quantity=quantity, total=price * quantity)
 
     return redirect('order')
 
 def order(request):
     setting = Setting.objects.latest('id')
     session_key = request.session.session_key
-    # cart = TableOrder.objects.filter(session_key=session_key).first()
-    # cart_items = []
-    # if cart:
-    #     cart_items = TableOrderItem.objects.filter(cart=cart).annotate(
-    #         total_price=ExpressionWrapper(F('product__price') * F('quantity'), output_field=DecimalField())
-    #     )
-    #     total_price = cart_items.aggregate(total=Sum('total_price'))['total'] or 0
-    # else:
-    #     cart_items = []
-    #     total_price = 0
-    # form = BillingForm()
+    order = TableOrder.objects.filter(session_key=session_key).first()
+    cart_items = []
+    if order:
+        cart_items = TableOrderItem.objects.filter(table=order).annotate(
+            total_price=ExpressionWrapper(F('product__price') * F('quantity'), output_field=DecimalField())
+        )
+        total_price = cart_items.aggregate(total=Sum('total_price'))['total'] or 0
+    else:
+        cart_items = []
+        total_price = 0
+    form = AddToOrderForm()
     return render(request, 'menu/order.html', locals())
 
 def clear_order(request):
