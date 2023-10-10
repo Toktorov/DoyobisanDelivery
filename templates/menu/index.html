@@ -134,7 +134,14 @@
 	                        </a>
 	                    </figure>
 	                    <ul>
-	                        <li><span class="take yes">Заказать на стол {{ table.number }}</span></li>
+							<form method="POST" action="{% url 'add_to_order' %}">
+								{% csrf_token %}
+								<input type="hidden" name="product_id" value="{{ product.id }}">
+								<input type="hidden" name="price" value="{{ product.price }}">
+								<input class="js-result form-control" type="hidden" name="quantity" min="1" value="1">
+
+								<button type="submit" class="take yes">Заказать на стол {{ table.number }}</button>
+							</form>
 	                        <li>
 	                            <div class="score"><strong>9.5</strong></div>
 	                        </li>

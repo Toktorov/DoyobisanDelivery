@@ -76,7 +76,7 @@ class TableOrder(models.Model):
         verbose_name_plural = "Корзины"
 
 class TableOrderItem(models.Model):
-    order = models.ForeignKey(TableOrder, on_delete=models.CASCADE, verbose_name="Заказ")
+    table = models.ForeignKey(TableOrder, on_delete=models.CASCADE, verbose_name="Заказ")
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Товар")
     quantity = models.PositiveIntegerField(default=1, verbose_name="Количество товара")
     total = models.PositiveBigIntegerField(default=0, verbose_name="Итоговая цена товаров")
