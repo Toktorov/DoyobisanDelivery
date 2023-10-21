@@ -72,8 +72,8 @@ class TableOrder(models.Model):
         return f"{self.session_key}"
     
     class Meta:
-        verbose_name = "Корзина"
-        verbose_name_plural = "Корзины"
+        verbose_name = "Корзина (меню)"
+        verbose_name_plural = "Корзины (меню)"
 
 class TableOrderItem(models.Model):
     table = models.ForeignKey(TableOrder, on_delete=models.CASCADE, verbose_name="Заказ")
@@ -85,5 +85,5 @@ class TableOrderItem(models.Model):
         return f"{self.order}"
     
     class Meta:
-        verbose_name = "Товар в корзине"
-        verbose_name_plural = "Товары в корзине"
+        verbose_name = "Товар в корзине (меню)"
+        verbose_name_plural = "Товары в корзине (меню)"

@@ -1,16 +1,33 @@
 from django.shortcuts import render, redirect
 from django.db.models import F, ExpressionWrapper, DecimalField, Sum
+from asgiref.sync import sync_to_async
+import asyncio
 
 from apps.settings.models import Setting
 from apps.tables.models import Table, TableOrder, TableOrderItem
 from apps.tables.forms import AddToOrderForm
 from apps.products.models import Product
+from utils.iiko_menu import main
 
 # Create your views here.
 def menu(request, table_uuid):
     table = Table.objects.get(number=table_uuid)
     setting = Setting.objects.latest('id')
-    products = Product.objects.all()
+
+    menu_data = main()
+
+    # Получаем информацию о продуктах
+    items = menu_data.get('itemCategories', [])[0].get('items')
+
+    products = []
+    for item in items:
+        if item['name'] and item['itemSizes'][0].get('prices')[0].get('price'):
+            item_info = {
+                'title': item['name'],
+                'price': item['itemSizes'][0].get('prices')[0].get('price'),
+            }
+            products.append(item_info)
+
     return render(request, 'menu/index.html', locals())
 
 def add_to_order(request):
