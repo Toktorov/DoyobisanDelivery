@@ -16,7 +16,8 @@ class Product(models.Model):
     )
     image = models.ImageField(
         max_length=1000,
-        verbose_name="Фотография продукта"
+        verbose_name="Фотография продукта",
+        default='no_image.jpg'
     )
     created = models.DateTimeField(
         auto_now_add=True,
